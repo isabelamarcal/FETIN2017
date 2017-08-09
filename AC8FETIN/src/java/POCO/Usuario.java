@@ -12,7 +12,15 @@ package POCO;
 public class Usuario {
     private String login;
     private String senha;
-    
+    private String tipo;
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
     private String nomeCompleto;
 
     public String getNomeCompleto() {
