@@ -5,6 +5,8 @@
  */
 package POCO;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Isabela
@@ -13,6 +15,7 @@ public class Clinica extends Usuario{
     private String endereco;
     private String cidade;
     private String estado;
+    private ArrayList<Medico> medicos;
 
     public String getEndereco() {
         return endereco;

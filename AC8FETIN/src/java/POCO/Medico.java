@@ -5,6 +5,8 @@
  */
 package POCO;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Isabela
@@ -12,6 +14,7 @@ package POCO;
 public class Medico extends Usuario{
     private String especialidade;
     private String cmr;
+    private ArrayList<Clinica> clinicas;
 
     public String getCmr() {
         return cmr;
