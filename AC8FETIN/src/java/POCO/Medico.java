@@ -11,7 +11,16 @@ package POCO;
  */
 public class Medico extends Usuario{
     private String especialidade;
+    private String cmr;
 
+    public String getCmr() {
+        return cmr;
+    }
+
+    public void setCmr(String cmr) {
+        this.cmr = cmr;
+    }
+    
     public String getEspecialidade() {
         return especialidade;
     }
