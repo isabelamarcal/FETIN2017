@@ -86,7 +86,7 @@ public class MedicoDAO {
             ResultSet rs = st.executeQuery(sql);
 
             while (rs.next()) {
-                data.setId(rs.getInt("id"));
+                data.setId(rs.getInt("idMedico"));
                 data.setNomeCompleto(rs.getString("nomeCompleto"));
                 data.setCmr(rs.getString("cmr"));
                 data.setLogin(rs.getString("login"));
@@ -114,7 +114,7 @@ public class MedicoDAO {
             while (rs.next()) {
                 Medico data = new Medico();
 
-                data.setId(rs.getInt("id"));
+                data.setId(rs.getInt("idMedico"));
                 data.setNomeCompleto(rs.getString("nomeCompleto"));
                 data.setCmr(rs.getString("cmr"));
                 data.setLogin(rs.getString("login"));

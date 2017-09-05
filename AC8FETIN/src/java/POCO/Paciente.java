@@ -12,7 +12,15 @@ package POCO;
 public class Paciente extends Usuario{
     
     private String tipoSanguineo;
+private int id;
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
     public String getTipoSanguineo() {
         return tipoSanguineo;
     }

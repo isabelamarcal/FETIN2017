@@ -48,6 +48,7 @@ CREATE TABLE IF NOT EXISTS `meconsulta`.`Paciente` (
   `login` VARCHAR(45) NULL,
   `senha` VARCHAR(45) NULL,
   `nomeCompleto` VARCHAR(150) NULL,
+  `tipoSanguineo` VARCHAR(4) NULL,
   PRIMARY KEY (`idPaciente`))
 ENGINE = InnoDB;
 
