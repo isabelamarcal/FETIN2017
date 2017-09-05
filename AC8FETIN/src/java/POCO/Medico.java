@@ -15,7 +15,24 @@ public class Medico extends Usuario{
     private String especialidade;
     private String cmr;
     private ArrayList<Clinica> clinicas;
+    private int id;
 
+    public ArrayList<Clinica> getClinicas() {
+        return clinicas;
+    }
+
+    public void setClinicas(ArrayList<Clinica> clinicas) {
+        this.clinicas = clinicas;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+    
     public String getCmr() {
         return cmr;
     }
