@@ -12,11 +12,29 @@ import java.util.ArrayList;
  * @author Isabela
  */
 public class Clinica extends Usuario{
+    private int id;
     private String endereco;
     private String cidade;
     private String estado;
     private ArrayList<Medico> medicos;
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public ArrayList<Medico> getMedicos() {
+        return medicos;
+    }
+
+    public void setMedicos(ArrayList<Medico> medicos) {
+        this.medicos = medicos;
+    }
+
+    
     public String getEndereco() {
         return endereco;
     }
