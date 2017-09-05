@@ -23,7 +23,7 @@ public class ConnectionManager {
         System.out.println("Conectando ao banco...");
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost/sucatalivre", "root", "dinossauro");
+            con = DriverManager.getConnection("jdbc:mysql://localhost/meconsulta", "root", "root");
 
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(ConnectionManager.class.getName()).log(Level.SEVERE, null, ex);
