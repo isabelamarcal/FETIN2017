@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:body>
+
+        <ui:composition template="./../menu.xhtml">
+            <ui:define name="conteudo">
+
+                <p:outputLabel value="Nome*:  "/>
+                <p:inputText id="nome" value="#{medico.nomeCompleto}" 
+                             required="true" requiredMessage="Digite um nome!" />
+
+                <br/> <br/>
+                <p:outputLabel value="CMR*:  "/>
+                <p:inputText id="cmr" value="#{medico.cmr}" 
+                             required="true" requiredMessage="Digite seu crmv!" />
+                <br/> <br/>
+                
+                <p:outputLabel value="Especialidade:  "/>
+                <p:inputText id="especialidade" value="#{medico.especialidade}" 
+                             required="true" requiredMessage="Digite sua especialidade!" />
+                <br/> <br/>
+
+                <p:outputLabel value="Login*:  "/>
+                <p:inputText id="login" value="#{medico.login}" 
+                             required="true" requiredMessage="Digite seu login!" />
+                <br/> <br/>
+                
+                <p:outputLabel value="Senha*:  "/>
+                <p:inputText id="senha" value="#{medico.senha}" 
+                             required="true" requiredMessage="Digite sua senha!" />
+                <br/> <br/>
+                
+                <p:commandButton value="Inserir" action="#{medicoBean.inserir(medico)}"/>
+            </ui:define>
+        </ui:composition>
+
+    </h:body>
+</html>

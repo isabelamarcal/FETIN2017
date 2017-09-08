@@ -6,11 +6,13 @@
 package POCO;
 
 import java.util.ArrayList;
+import javax.faces.bean.ManagedBean;
 
 /**
  *
  * @author Isabela
  */
+@ManagedBean
 public class Medico extends Usuario{
     private String especialidade;
     private String cmr;
