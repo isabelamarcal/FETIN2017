@@ -18,7 +18,7 @@ USE `meconsulta` ;
 -- Table `meconsulta`.`Clinica`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `meconsulta`.`Clinica` (
-  `idClinica` INT NOT NULL,
+  `idClinica` INT NOT NULL AUTO_INCREMENT,
   `endereco` VARCHAR(450) NULL,
   `cidade` VARCHAR(150) NULL,
   `estado` VARCHAR(2) NULL,
@@ -30,7 +30,7 @@ ENGINE = InnoDB;
 -- Table `meconsulta`.`Medico`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `meconsulta`.`Medico` (
-  `idMedico` INT NOT NULL,
+  `idMedico` INT NOT NULL AUTO_INCREMENT,
   `login` VARCHAR(45) NULL,
   `senha` VARCHAR(45) NULL,
   `nomeCompleto` VARCHAR(150) NULL,
@@ -44,7 +44,7 @@ ENGINE = InnoDB;
 -- Table `meconsulta`.`Paciente`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `meconsulta`.`Paciente` (
-  `idPaciente` INT NOT NULL,
+  `idPaciente` INT NOT NULL AUTO_INCREMENT,
   `login` VARCHAR(45) NULL,
   `senha` VARCHAR(45) NULL,
   `nomeCompleto` VARCHAR(150) NULL,

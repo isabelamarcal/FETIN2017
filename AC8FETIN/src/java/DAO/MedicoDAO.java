@@ -24,7 +24,7 @@ public class MedicoDAO {
         try {
             Connection conn = ConnectionManager.Conectar();
 
-            String sql = "INSERT INTO medico (login, senha, nomeCompleto, especialidade, crm) VALUES('" + data.getLogin() + "','" + data.getSenha() + "','" + data.getNomeCompleto() + "','" + data.getEspecialidade() + "','" + data.getCmr() + "');";
+            String sql = "INSERT INTO medico (login, senha, nomeCompleto, especialidade, cmr) VALUES('" + data.getLogin() + "','" + data.getSenha() + "','" + data.getNomeCompleto() + "','" + data.getEspecialidade() + "','" + data.getCmr() + "');";
 
             PreparedStatement preparedStmt = conn.prepareStatement(sql);
 
@@ -44,6 +44,7 @@ public class MedicoDAO {
             conn.close();
 
         } catch (Exception ex) {
+            System.out.println(ex.getMessage());
         }
         return data;
 
