@@ -14,8 +14,9 @@ import javax.faces.bean.ManagedBean;
  */
 @ManagedBean
 public class Medico extends Usuario{
+    
     private String especialidade;
-    private String cmr;
+    private String crm;
     private ArrayList<Clinica> clinicas;
     private int id;
 
@@ -35,12 +36,12 @@ public class Medico extends Usuario{
         this.id = id;
     }
     
-    public String getCmr() {
-        return cmr;
+    public String getCrm() {
+        return crm;
     }
 
-    public void setCmr(String cmr) {
-        this.cmr = cmr;
+    public void setCrm(String crm) {
+        this.crm = crm;
     }
     
     public String getEspecialidade() {

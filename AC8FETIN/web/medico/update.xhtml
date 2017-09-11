@@ -5,12 +5,51 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-    <head>
-        <title>TODO supply a title</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    </head>
-    <body>
-        <div>TODO write content</div>
-    </body>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:body>
+
+        <ui:composition template="./../menu.xhtml">
+            <ui:define name="conteudo">
+                <p:selectOneMenu id="vet" value="#{medicoBean.localizado}">
+                    <f:selectItems value="#{medicoBean.listaMedicos()}"
+                                   var="u" itemLabel="#{u.nomeCompleto}, CRM: #{u.crm}" itemValue="#{u.nomeCompleto},  CRM: #{u.crm}"/>
+                </p:selectOneMenu>
+                <br/> <br/>
+                <h:commandButton value="Selecionar" action="#{medicoBean.buscar()}"/>
+                <br/> <br/>
+   
+                    <form>
+                        <p:outputLabel value="Nome:  "/>
+                        <p:inputText id="nome"  value="#{medicoBean.selecionado.nomeCompleto}"/>
+                        <br/> <br/>
+
+                        <p:outputLabel  value="Id:  "/>
+                        <p:inputText id="id"  value="#{medicoBean.selecionado.id}"/>
+                        <br/> <br/>
+
+                        <p:outputLabel value="Especialidade:  "/>
+                        <p:inputText id="especialidade"  value="#{medicoBean.selecionado.especialidade}"/>
+                        <br/> <br/>
+
+                        <p:outputLabel value="CRM:  "/>
+                        <p:inputText id="crm"  value="#{medicoBean.selecionado.crm}"/>
+                        <br/> <br/>
+
+                        <p:outputLabel value="Senha:  "/>
+                        <p:inputText id="senha" value="#{medicoBean.selecionado.senha}"/>
+                        <br/> <br/>
+
+                        <h:commandButton value="Salvar" action="#{medicoBean.atualizar(medicoBean.selecionado.id)}">
+                            <f:param name="id" value="#{medicoBean.selecionado.id}"/>
+                        </h:commandButton>
+                    </form>
+            </ui:define>
+        </ui:composition>
+
+    </h:body>
 </html>

@@ -24,7 +24,7 @@ public class MedicoDAO {
         try {
             Connection conn = ConnectionManager.Conectar();
 
-            String sql = "INSERT INTO medico (login, senha, nomeCompleto, especialidade, cmr) VALUES('" + data.getLogin() + "','" + data.getSenha() + "','" + data.getNomeCompleto() + "','" + data.getEspecialidade() + "','" + data.getCmr() + "');";
+            String sql = "INSERT INTO medico (login, senha, nomeCompleto, especialidade, crm) VALUES('" + data.getLogin() + "','" + data.getSenha() + "','" + data.getNomeCompleto() + "','" + data.getEspecialidade() + "','" + data.getCrm() + "');";
 
             PreparedStatement preparedStmt = conn.prepareStatement(sql);
 
@@ -65,7 +65,7 @@ public class MedicoDAO {
                 data.setId(rs.getInt("idMedico"));
                 data.setNomeCompleto(rs.getString("nomeCompleto"));
                 data.setEspecialidade(rs.getString("especialidade"));
-                data.setCmr(rs.getString("cmr"));
+                data.setCrm(rs.getString("crm"));
 
             }
             st.close();
@@ -75,6 +75,32 @@ public class MedicoDAO {
         return data;
     }
 
+    public Medico getMedicoCRM(String crm) {
+        Medico data = new Medico();
+        try {
+            Connection conn = ConnectionManager.Conectar();
+
+            String sql = "SELECT * FROM medico WHERE crm='" + crm + "' ;";
+
+            Statement st = conn.createStatement();
+
+            ResultSet rs = st.executeQuery(sql);
+
+            while (rs.next()) {
+                data.setId(rs.getInt("idMedico"));
+                data.setNomeCompleto(rs.getString("nomeCompleto"));
+                data.setCrm(rs.getString("crm"));
+                data.setLogin(rs.getString("login"));
+                data.setSenha(rs.getString("senha"));
+                data.setEspecialidade(rs.getString("especialidade"));
+            }
+            st.close();
+            conn.close();
+        } catch (Exception ex) {
+        }
+        return data;
+    }
+    
     public Medico getMedico(int id) {
         Medico data = new Medico();
         try {
@@ -89,7 +115,7 @@ public class MedicoDAO {
             while (rs.next()) {
                 data.setId(rs.getInt("idMedico"));
                 data.setNomeCompleto(rs.getString("nomeCompleto"));
-                data.setCmr(rs.getString("cmr"));
+                data.setCrm(rs.getString("crm"));
                 data.setLogin(rs.getString("login"));
                 data.setSenha(rs.getString("senha"));
                 data.setEspecialidade(rs.getString("especialidade"));
@@ -117,7 +143,7 @@ public class MedicoDAO {
 
                 data.setId(rs.getInt("idMedico"));
                 data.setNomeCompleto(rs.getString("nomeCompleto"));
-                data.setCmr(rs.getString("cmr"));
+                data.setCrm(rs.getString("crm"));
                 data.setLogin(rs.getString("login"));
                 data.setSenha(rs.getString("senha"));
                 data.setEspecialidade(rs.getString("especialidade"));
@@ -138,7 +164,7 @@ public class MedicoDAO {
 
             String sql = "UPDATE medico set login='"
                     + data.getLogin() + "', senha='" + data.getSenha() + "', nomeCompleto='" + data.getNomeCompleto() + "', especialidade='"
-                    + data.getEspecialidade() + "', cmr='" + data.getCmr() + "' where idMedico=" + data.getId() + ";";
+                    + data.getEspecialidade() + "', crm='" + data.getCrm() + "' where idMedico=" + data.getId() + ";";
 
             PreparedStatement preparedStmt = conn.prepareStatement(sql);
 
