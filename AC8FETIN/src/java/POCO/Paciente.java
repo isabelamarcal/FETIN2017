@@ -5,10 +5,13 @@
  */
 package POCO;
 
+import javax.faces.bean.ManagedBean;
+
 /**
  *
  * @author Isabela
  */
+@ManagedBean
 public class Paciente extends Usuario{
     
     private String tipoSanguineo;
