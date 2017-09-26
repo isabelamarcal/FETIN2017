@@ -27,12 +27,21 @@ public class UsuarioBean {
         pdao = new PacienteDAO();
     }
     
-    public void logar(Usuario usuario){
+    public String logar(Usuario usuario){
         if("Médico".equals(usuario.getTipo())){
-            mdao.login((Medico) usuario);
+            Medico m = new Medico();
+            m.setLogin(usuario.getLogin());
+            m.setSenha(usuario.getSenha());
+            m = mdao.login(m);
+            if(m.getId()!=0){
+                        return("medicoDashboard");
+
+            }
+            return "";
         }
         else{
             pdao.login((Paciente) usuario);
+            return"";
         }
     }
     

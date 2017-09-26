@@ -11,30 +11,31 @@
     </h:head>
     <h:body>
         <div id="centerButtons">
+            <h:form id="ind">
+                <img src="resources/images/logoMeConsulta.jpeg"/>
+                <br/> <br/><br/> <br/>
+                <p:outputLabel value="Login*:  "/>
+                <p:inputText id="login" value="#{usuario.login}" 
+                             required="true" requiredMessage="Digite seu login!" />
+                <br/> <br/>
 
-            <img src="resources/images/logoMeConsulta.jpeg"/>
-            <br/> <br/><br/> <br/>
-
-            <p:outputLabel value="Login*:  "/>
-            <p:inputText id="login" value="#{usuario.login}" 
-                         required="true" requiredMessage="Digite seu login!" />
-            <br/> <br/>
-
-            <p:outputLabel value="Senha*:  "/>
-            <p:password id="senha" value="#{usuario.senha}" 
-                        required="true" requiredMessage="Digite sua senha!" />
-            <br/> <br/>
-            <p:selectOneRadio class="btOption" id="console" value="#{usuario.tipo}">
-                <f:selectItem itemLabel="Médico" itemValue="Médico" />
-                <f:selectItem itemLabel="Paciente" itemValue="Paciente" />
-            </p:selectOneRadio>
-            <br></br>
-            <p:commandButton value="Sign in" action="#{usuarioBean.logar(usuario)}"/>
+                <p:outputLabel value="Senha*:  "/>
+                <p:password id="senha" value="#{usuario.senha}" 
+                            required="true" requiredMessage="Digite sua senha!" />
+                <br/> <br/>
+                <p:selectOneRadio class="btOption" id="console" value="#{usuario.tipo}">
+                    <f:selectItem itemLabel="Médico" itemValue="Médico" />
+                    <f:selectItem itemLabel="Paciente" itemValue="Paciente" />
+                </p:selectOneRadio>
+                <br></br>
+                <p:commandButton value="Sign in" action="#{usuarioBean.logar(usuario)}" ajax="false"/>
+            </h:form>
             <br></br>
             <br></br>
             <a href="/AC8FETIN/faces/medico/create.xhtml">Sou médico e quero me cadastrar!</a>
             <a href="">Sou paciente e quero me cadastrar!</a>
-   
+
+
         </div>
     </h:body>
 </html>
