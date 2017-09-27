@@ -12,37 +12,32 @@ and open the template in the editor.
     <h:head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <h:outputStylesheet name="/css/style.css"/>
-        <title>Cadastro medico</title>
+        <title>Cadastro paciente</title>
     </h:head>
     <h:body>
         <div id="centerButtons">
             <h:form>
                 <p:outputLabel value="Nome*:  "/>
-                <p:inputText id="nome" value="#{medico.nomeCompleto}" 
+                <p:inputText id="nome" value="#{paciente.nomeCompleto}" 
                              required="true" requiredMessage="Digite um nome!" />
 
                 <br/> <br/>
-                <p:outputLabel value="CMR*:  "/>
-                <p:inputText id="crm" value="#{medico.crm}" 
-                             required="true" requiredMessage="Digite seu crm!" />
-                <br/> <br/>
-
-                <p:outputLabel value="Especialidade:  "/>
-                <p:inputText id="especialidade" value="#{medico.especialidade}" 
-                             required="true" requiredMessage="Digite sua especialidade!" />
+                <p:outputLabel value="Tipo sanguineo*:  "/>
+                <p:inputText id="crm" value="#{paciente.tipoSanguineo}" 
+                             required="true" requiredMessage="Digite seu tipo sanguineo!" />
                 <br/> <br/>
 
                 <p:outputLabel value="Login*:  "/>
-                <p:inputText id="login" value="#{medico.login}" 
+                <p:inputText id="login" value="#{paciente.login}" 
                              required="true" requiredMessage="Digite seu login!" />
                 <br/> <br/>
 
                 <p:outputLabel value="Senha*:  "/>
-                <p:password id="senha" value="#{medico.senha}" 
+                <p:password id="senha" value="#{paciente.senha}" 
                             required="true" requiredMessage="Digite sua senha!" />
                 <br/> <br/>
 
-                <p:commandButton value="Cadastrar" action="#{medicoBean.inserir(medico)}"/>
+                <p:commandButton value="Cadastrar" action="#{pacienteBean.inserir(paciente)}"/>
             </h:form>
         </div>
     </h:body>

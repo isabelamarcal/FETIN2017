@@ -17,6 +17,15 @@ and open the template in the editor.
 .btOption{
     margin-left: 580px;
 }
+.linkButton{
+    color: #3366ff;
+    font-family: arial;
+}
+
+.commandButtonStyle{
+    color: #0032ac;
+    background-color: #3388ff;
+}
 
 
 

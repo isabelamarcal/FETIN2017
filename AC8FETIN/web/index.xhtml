@@ -28,12 +28,13 @@
                     <f:selectItem itemLabel="Paciente" itemValue="Paciente" />
                 </p:selectOneRadio>
                 <br></br>
-                <p:commandButton value="Sign in" action="#{usuarioBean.logar(usuario)}" ajax="false"/>
+                <p:commandButton value="Sign in" class="commandButtonStyle" action="#{usuarioBean.logar(usuario)}" ajax="false"/>
             </h:form>
             <br></br>
             <br></br>
-            <a href="/AC8FETIN/faces/medico/create.xhtml">Sou médico e quero me cadastrar!</a>
-            <a href="/AC8FETIN/faces/paciente/create.xhtml">Sou paciente e quero me cadastrar!</a>
+            <a href="/AC8FETIN/faces/medico/create.xhtml" class="linkButton">Sou médico e quero me cadastrar!</a>
+            <label>&nbsp;&nbsp;&nbsp;&nbsp;</label>
+            <a href="/AC8FETIN/faces/paciente/create.xhtml" class="linkButton">Sou paciente e quero me cadastrar!</a>
 
 
         </div>
