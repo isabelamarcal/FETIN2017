@@ -55,9 +55,14 @@ public class MedicoBean {
         medico =  mdao.getMedicoCRM(l[t-1]);
     }
     
-    public String buscar(){
+    public String buscarView(){
         medico = mdao.getMedico(Constantes.USUARIO.TIPO.IDMEDICO);
         return "medicoView";
+    }
+    
+    public String buscarUpdate(){
+        medico = mdao.getMedico(Constantes.USUARIO.TIPO.IDMEDICO);
+        return "medicoUpdate";
     }
     
     public void excluir(){

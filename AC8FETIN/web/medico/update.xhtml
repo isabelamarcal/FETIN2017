@@ -19,31 +19,31 @@ and open the template in the editor.
    
                     <form>
                         <p:outputLabel value="Nome:  "/>
-                        <p:inputText id="nome"  value="#{medicoBean.selecionado.nomeCompleto}"/>
+                        <p:inputText id="nome"  value="#{medicoBean.medico.nomeCompleto}"/>
                         <br/> <br/>
 
                         <p:outputLabel  value="Id:  "/>
-                        <p:inputText id="id"  value="#{medicoBean.selecionado.id}"/>
+                        <p:inputText id="id"  value="#{medicoBean.medico.id}"/>
                         <br/> <br/>
 
                         <p:outputLabel value="Especialidade:  "/>
-                        <p:inputText id="especialidade"  value="#{medicoBean.selecionado.especialidade}"/>
+                        <p:inputText id="especialidade"  value="#{medicoBean.medico.especialidade}"/>
                         <br/> <br/>
 
                         <p:outputLabel value="CRM:  "/>
-                        <p:inputText id="crm"  value="#{medicoBean.selecionado.crm}"/>
+                        <p:inputText id="crm"  value="#{medicoBean.medico.crm}"/>
                         <br/> <br/>
                         
                         <p:outputLabel value="Login:  "/>
-                        <p:inputText id="login"  value="#{medicoBean.selecionado.login}"/>
+                        <p:inputText id="login"  value="#{medicoBean.medico.login}"/>
                         <br/> <br/>
 
                         <p:outputLabel value="Senha:  "/>
-                        <p:inputText id="senha" value="#{medicoBean.selecionado.senha}"/>
+                        <p:inputText id="senha" value="#{medicoBean.medico.senha}"/>
                         <br/> <br/>
 
-                        <h:commandButton value="Salvar" action="#{medicoBean.atualizar(medicoBean.selecionado.id)}">
-                            <f:param name="id" value="#{medicoBean.selecionado.id}"/>
+                        <h:commandButton value="Salvar" action="#{medicoBean.atualizar(medicoBean.medico.id)}">
+                            <f:param name="id" value="#{medicoBean.medico.id}"/>
                         </h:commandButton>
                     </form>
             </ui:define>
