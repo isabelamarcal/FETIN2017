@@ -15,35 +15,26 @@ and open the template in the editor.
 
         <ui:composition template="./../menu.xhtml">
             <ui:define name="conteudo">
-                <p:selectOneMenu id="vet" value="#{medicoBean.localizado}">
-                    <f:selectItems value="#{medicoBean.listaMedicos()}"
-                                   var="u" itemLabel="#{u.nomeCompleto}, CRM: #{u.crm}" itemValue="#{u.nomeCompleto},  CRM: #{u.crm}"/>
-                </p:selectOneMenu>
-                <br/> <br/>
-                <h:commandButton value="Selecionar" action="#{medicoBean.buscar()}"/>
-                <br/> <br/>
-                <c:if test="#{medicoBean.selecionado.nomeCompleto!=null}">
 
-                    <p:outputLabel value="Id:  #{medicoBean.selecionado.id}"/>
+                    <p:outputLabel value="Id:  #{medicoBean.medico.id}"/>
                     <br/> <br/>
 
-                    <p:outputLabel value="Nome:  #{medicoBean.selecionado.nomeCompleto}"/>
+                    <p:outputLabel value="Nome:  #{medicoBean.medico.nomeCompleto}"/>
                     <br/> <br/>
                     
-                    <p:outputLabel value="Especialidade:  #{medicoBean.selecionado.especialidade}"/>
+                    <p:outputLabel value="Especialidade:  #{medicoBean.medico.especialidade}"/>
                     <br/> <br/>
 
-                    <p:outputLabel value="CRM:  #{medicoBean.selecionado.crm}"/>
+                    <p:outputLabel value="CRM:  #{medicoBean.medico.crm}"/>
                     <br/> <br/>
                     
-                    <p:outputLabel value="Login:  #{medicoBean.selecionado.login}"/>
+                    <p:outputLabel value="Login:  #{medicoBean.medico.login}"/>
                     <br/> <br/>
 
-                    <p:outputLabel value="Senha:  #{medicoBean.selecionado.senha}"/>
+                    <p:outputLabel value="Senha:  #{medicoBean.medico.senha}"/>
                     <br/> <br/>
-                </c:if>
+
             </ui:define>
         </ui:composition>
-
     </h:body>
 </html>

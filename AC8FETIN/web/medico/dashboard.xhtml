@@ -12,19 +12,17 @@
     <h:body>
         <ui:composition template="./../menu.xhtml">
             <ui:define name="conteudo">
-                   Aqui pro medico
+                Aqui pro medico
             </ui:define>
             <ui:define name="menu">
-                <h:form>
+             
                     <h3 class="default-h1">Olá Médico!</h3>
-
-                    <p:menu>
-                        <p:menuitem value="Dashboard" outcome="/medico/dashboard.xhtml" icon="ui-icon-plus"/>
-                        <p:menuitem value="Consultas" outcome="/medico/create.xhtml" icon="ui-icon-plus"/>
-                        <p:menuitem value="Meus Dados" outcome="/medico/read.xhtml" icon="ui-icon-plus"/>
-
-                    </p:menu>
-                </h:form>
+                        <p:menu>
+                            <p:menuitem value=" Dashboard" outcome="/medico/dashboard.xhtml" icon="ui-icon-plus"/>
+                            <p:menuitem value=" Consultas" outcome="/medico/create.xhtml" icon="ui-icon-plus"/>
+                            <p:menuitem value=" Meus Dados" id="menuzinho" action="#{medicoBean.buscar}" icon="ui-icon-person" ajax="false"/>
+                        </p:menu>
+               
             </ui:define>
         </ui:composition>
     </h:body>

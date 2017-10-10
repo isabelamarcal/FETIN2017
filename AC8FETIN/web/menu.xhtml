@@ -10,7 +10,7 @@
         <h:form id="form">
             <table width="100%">
 
-                <p:layout>
+                <p:layout fullPage="true">
                     <p:layoutUnit position="north" size="110" resizable="true" closable="true" collapsible="true">
                         <ui:insert name="cabecalho">
                             <h1 align="center">Me Consulta</h1>
@@ -21,10 +21,9 @@
                         <ui:insert name="menu">
                             <p:menu>
                                 <p:submenu label="Médico">
-                                    <p:menuitem value=" Fazer cadastro" outcome="/medico/create.xhtml" icon="ui-icon-plus" />
-                                    <p:menuitem value=" Alterar perfil" outcome="/medico/update.xhtml" icon="ui-icon-pencil"/>
-                                    <p:menuitem value=" Excluir perfil" outcome="/medico/delete.xhtml" icon="ui-icon-trash"/>
-                                    <p:menuitem value=" Visualizar perfil" outcome="/medico/read.xhtml" icon="ui-icon-person"/>
+                                    <p:menuitem value=" Dashboard" outcome="/medico/create.xhtml" icon="ui-icon-plus" />
+                                    <p:menuitem value=" Consultas" outcome="/medico/update.xhtml" icon="ui-icon-pencil"/>
+                                    <p:menuitem value=" Meus Dados" outcome="/medico/delete.xhtml" icon="ui-icon-person"/>
                                 </p:submenu>
                             </p:menu>
                         </ui:insert>
@@ -33,6 +32,14 @@
                     <p:layoutUnit position="center">
                         <ui:insert name="conteudo">
                             Selecione uma opção ao lado.
+                        </ui:insert>
+                    </p:layoutUnit>
+                    
+                    <p:layoutUnit position="south" size="100">
+                        <ui:insert name="footer">
+                            <h:outputText value="Bianca Magri e Isabela Marçal"/>
+                            <br></br>
+                            <h:outputText value=" MeConsulta © 2017"/>
                         </ui:insert>
                     </p:layoutUnit>
                 </p:layout>
