@@ -176,6 +176,24 @@ public class MedicoDAO {
         }
 
     }
+    
+    public void addClinica(int medicoId, int clinicaId) {
+        try {
+            Connection conn = ConnectionManager.Conectar();
+
+            String sql = "insert into clinica_has_medico values("
+                    + clinicaId + ", "+medicoId+");";
+
+            PreparedStatement preparedStmt = conn.prepareStatement(sql);
+
+            preparedStmt.execute();
+
+            conn.close();
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+
+    }
 
     public void deleta(Medico data) {
         try {
