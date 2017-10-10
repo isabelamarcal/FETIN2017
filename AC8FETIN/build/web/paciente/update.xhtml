@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:body>
+
+        <ui:composition template="./../menu.xhtml">
+            <ui:define name="conteudo">
+                <form>
+                    <p:outputLabel value="Nome:  "/>
+                    <p:inputText id="nome"  value="#{pacienteBean.paciente.nomeCompleto}"/>
+                    <br/> <br/>
+
+                    <p:outputLabel  value="Id:  "/>
+                    <p:inputText id="id"  value="#{pacienteBean.paciente.id}"/>
+                    <br/> <br/>
+
+                    <p:outputLabel value="Tipo sanguineo  "/>
+                    <p:inputText id="tiposanguineo"  value="#{pacienteBean.paciente.tipoSanguineo}"/>
+                    <br/> <br/>
+
+                    <p:outputLabel value="Login:  "/>
+                    <p:inputText id="login"  value="#{pacienteBean.paciente.login}"/>
+                    <br/> <br/>
+
+                    <p:outputLabel value="Senha:  "/>
+                    <p:inputText id="senha" value="#{pacienteBean.paciente.senha}"/>
+                    <br/> <br/>
+
+                    <h:commandButton value="Salvar" action="#{pacienteBean.atualizar(pacienteBean.paciente.id)}">
+                        <f:param name="id" value="#{pacienteBean.paciente.id}"/>
+                    </h:commandButton>
+                </form>
+            </ui:define>
+        </ui:composition>
+
+    </h:body>
+</html>

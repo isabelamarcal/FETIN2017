@@ -5,6 +5,7 @@
  */
 package BEAN;
 
+import CONSTANTES.Constantes;
 import DAO.PacienteDAO;
 import POCO.Paciente;
 import java.sql.SQLException;
@@ -18,38 +19,28 @@ import javax.faces.context.FacesContext;
  *
  * @author Isabela
  */
-
 @ManagedBean
 public class PacienteBean {
-     private PacienteDAO pdao;
-    private Paciente selecionado;
+
+    private PacienteDAO pdao;
+    private Paciente paciente;
     private String localizado;
 
     public PacienteBean() {
         pdao = new PacienteDAO();
-        selecionado = new Paciente();
+        paciente = new Paciente();
     }
 
-    public void inserir(Paciente m){
+    public void inserir(Paciente p) {
         try {
-            selecionado = pdao.cadastro(m);
+            paciente = pdao.cadastro(p);
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Successo!", "Paciente cadastrado."));
         } catch (SQLException ex) {
             Logger.getLogger(MedicoBean.class.getName()).log(Level.SEVERE, null, ex);
         }
-   //     return "login";
+        //     return "login";
     }
-    
-//    public List<Medico> listaMedicos(){
-//        return mdao.readAll();
-//    }
-//    
-//    public void buscar(){
-//        String[] l = new String[100];
-//        l = localizado.split(" ");
-//        int t = l.length;
-//        selecionado =  mdao.getMedicoCRM(l[t-1]);
-//    }
+
 //    
 //    public void excluir(){
 //        mdao.deleta(selecionado);
@@ -64,16 +55,38 @@ public class PacienteBean {
 //        return selecionado;
 //    }
 //
-//    public void setSelecionado(Medico selecionado) {
-//        this.selecionado = selecionado;
-//    }
-//
-//    public String getLocalizado() {
-//        return localizado;
-//    }
 //
 //    public void setLocalizado(String localizado) {
 //        this.localizado = localizado;
 //    }
+    public String buscarView() {
+        paciente = pdao.getPaciente(Constantes.USUARIO.TIPO.IDPACIENTE);
+        return "pacienteView";
+    }
+
+    public String buscarUpdate() {
+        paciente = pdao.getPaciente(Constantes.USUARIO.TIPO.IDPACIENTE);
+        return "pacienteUpdate";
+    }
+
+    public String excluir() {
+        paciente = pdao.getPaciente(Constantes.USUARIO.TIPO.IDPACIENTE);
+        pdao.deleta(paciente);
+        return "UpdateToIndexP";
+    }
+
+    public String atualizar(int id) {
+        paciente.setId(id);
+        pdao.editar(paciente);
+        return "UpdateToReadP";
+    }
+
+    public Paciente getPaciente() {
+        return paciente;
+    }
+
+    public void setPaciente(Paciente paciente) {
+        this.paciente = paciente;
+    }
 
 }

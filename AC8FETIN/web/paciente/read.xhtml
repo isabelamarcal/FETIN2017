@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:body>
+
+        <ui:composition template="./../menu.xhtml">
+            <ui:define name="conteudo">
+
+                <p:outputLabel value="Id:  #{pacienteBean.paciente.id}"/>
+                <br/> <br/>
+
+                <p:outputLabel value="Nome:  #{pacienteBean.paciente.nomeCompleto}"/>
+                <br/> <br/>
+
+                <p:outputLabel value="Tipo sanguineo:  #{pacienteBean.paciente.tipoSanguineo}"/>
+                <br/> <br/>
+
+                <p:outputLabel value="Login:  #{pacienteBean.paciente.login}"/>
+                <br/> <br/>
+
+                <p:outputLabel value="Senha:  #{pacienteBean.paciente.senha}"/>
+                <br/> <br/>
+
+                <h:commandButton value="Editar" action="#{pacienteBean.buscarUpdate()}"/>
+                <br/><br/>
+                <h:commandButton value="Deletar" action="#{pacienteBean.excluir()}"/>
+
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
