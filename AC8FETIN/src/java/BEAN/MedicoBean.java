@@ -65,13 +65,16 @@ public class MedicoBean {
         return "medicoUpdate";
     }
     
-    public void excluir(){
+    public String excluir(){
+        medico = mdao.getMedico(Constantes.USUARIO.TIPO.IDMEDICO);
         mdao.deleta(medico);
+        return "UpdateToIndex";
     }
     
-     public void atualizar(int id){
+     public String atualizar(int id){
         medico.setId(id);
         mdao.editar(medico);
+        return "UpdateToRead";
     }
 
     public Medico getMedico() {

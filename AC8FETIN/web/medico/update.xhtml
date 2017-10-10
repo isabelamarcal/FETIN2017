@@ -15,37 +15,35 @@ and open the template in the editor.
 
         <ui:composition template="./../menu.xhtml">
             <ui:define name="conteudo">
-               
-   
-                    <form>
-                        <p:outputLabel value="Nome:  "/>
-                        <p:inputText id="nome"  value="#{medicoBean.medico.nomeCompleto}"/>
-                        <br/> <br/>
+                <form>
+                    <p:outputLabel value="Nome:  "/>
+                    <p:inputText id="nome"  value="#{medicoBean.medico.nomeCompleto}"/>
+                    <br/> <br/>
 
-                        <p:outputLabel  value="Id:  "/>
-                        <p:inputText id="id"  value="#{medicoBean.medico.id}"/>
-                        <br/> <br/>
+                    <p:outputLabel  value="Id:  "/>
+                    <p:inputText id="id"  value="#{medicoBean.medico.id}"/>
+                    <br/> <br/>
 
-                        <p:outputLabel value="Especialidade:  "/>
-                        <p:inputText id="especialidade"  value="#{medicoBean.medico.especialidade}"/>
-                        <br/> <br/>
+                    <p:outputLabel value="Especialidade:  "/>
+                    <p:inputText id="especialidade"  value="#{medicoBean.medico.especialidade}"/>
+                    <br/> <br/>
 
-                        <p:outputLabel value="CRM:  "/>
-                        <p:inputText id="crm"  value="#{medicoBean.medico.crm}"/>
-                        <br/> <br/>
-                        
-                        <p:outputLabel value="Login:  "/>
-                        <p:inputText id="login"  value="#{medicoBean.medico.login}"/>
-                        <br/> <br/>
+                    <p:outputLabel value="CRM:  "/>
+                    <p:inputText id="crm"  value="#{medicoBean.medico.crm}"/>
+                    <br/> <br/>
 
-                        <p:outputLabel value="Senha:  "/>
-                        <p:inputText id="senha" value="#{medicoBean.medico.senha}"/>
-                        <br/> <br/>
+                    <p:outputLabel value="Login:  "/>
+                    <p:inputText id="login"  value="#{medicoBean.medico.login}"/>
+                    <br/> <br/>
 
-                        <h:commandButton value="Salvar" action="#{medicoBean.atualizar(medicoBean.medico.id)}">
-                            <f:param name="id" value="#{medicoBean.medico.id}"/>
-                        </h:commandButton>
-                    </form>
+                    <p:outputLabel value="Senha:  "/>
+                    <p:inputText id="senha" value="#{medicoBean.medico.senha}"/>
+                    <br/> <br/>
+
+                    <h:commandButton value="Salvar" action="#{medicoBean.atualizar(medicoBean.medico.id)}">
+                        <f:param name="id" value="#{medicoBean.medico.id}"/>
+                    </h:commandButton>
+                </form>
             </ui:define>
         </ui:composition>
 

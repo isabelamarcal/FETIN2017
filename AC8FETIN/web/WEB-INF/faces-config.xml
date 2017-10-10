@@ -37,4 +37,21 @@
             <to-view-id>/medico/update.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
+ 
+    <navigation-rule>
+        <from-view-id>/medico/update.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>UpdateToRead</from-outcome>
+            <to-view-id>/medico/read.xhtml</to-view-id>
+        </navigation-case>
+        
+    </navigation-rule>
+    
+    <navigation-rule>
+        <from-view-id>/medico/read.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>UpdateToIndex</from-outcome>
+            <to-view-id>/index.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
 </faces-config>
