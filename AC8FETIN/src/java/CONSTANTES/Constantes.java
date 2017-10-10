@@ -18,6 +18,8 @@ public class Constantes {
             public static String PACIENTE = "PACIENTE";
             public static String MEDICO = "MEDICO";
             public static String CLINICA = "CLINICA";
+            public static int IDMEDICO = 0;
+            public static int IDPACIENTE = 0;
 
         }
     }
