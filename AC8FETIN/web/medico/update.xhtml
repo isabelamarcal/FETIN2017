@@ -15,13 +15,7 @@ and open the template in the editor.
 
         <ui:composition template="./../menu.xhtml">
             <ui:define name="conteudo">
-                <p:selectOneMenu id="vet" value="#{medicoBean.localizado}">
-                    <f:selectItems value="#{medicoBean.listaMedicos()}"
-                                   var="u" itemLabel="#{u.nomeCompleto}, CRM: #{u.crm}" itemValue="#{u.nomeCompleto},  CRM: #{u.crm}"/>
-                </p:selectOneMenu>
-                <br/> <br/>
-                <h:commandButton value="Selecionar" action="#{medicoBean.buscar()}"/>
-                <br/> <br/>
+               
    
                     <form>
                         <p:outputLabel value="Nome:  "/>
