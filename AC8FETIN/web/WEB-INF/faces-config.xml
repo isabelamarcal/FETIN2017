@@ -18,5 +18,10 @@
             <from-outcome>pacienteDashboard</from-outcome>
             <to-view-id>/paciente/dashboard.xhtml</to-view-id>
         </navigation-case>
+        
+        <navigation-case>
+            <from-outcome>medicoView</from-outcome>
+            <to-view-id>/medico/read.xhtml</to-view-id>
+        </navigation-case>
     </navigation-rule>
 </faces-config>

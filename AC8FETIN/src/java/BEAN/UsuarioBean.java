@@ -5,6 +5,7 @@
  */
 package BEAN;
 
+import CONSTANTES.Constantes;
 import DAO.MedicoDAO;
 import DAO.PacienteDAO;
 import POCO.Medico;
@@ -34,17 +35,19 @@ public class UsuarioBean {
             m.setSenha(usuario.getSenha());
             m = mdao.login(m);
             if(m.getId()!=0){
+                Constantes.USUARIO.TIPO.IDMEDICO = m.getId();
                         return("medicoDashboard");
 
             }
             return "";
         }
         else{
-             Paciente m = new Paciente();
-            m.setLogin(usuario.getLogin());
-            m.setSenha(usuario.getSenha());
-            m = pdao.login(m);
-            if(m.getId()!=0){
+            Paciente p = new Paciente();
+            p.setLogin(usuario.getLogin());
+            p.setSenha(usuario.getSenha());
+            p = pdao.login(p);
+            if(p.getId()!=0){
+                Constantes.USUARIO.TIPO.IDPACIENTE= p.getId();
                         return("pacienteDashboard");
 
             }

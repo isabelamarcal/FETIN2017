@@ -5,6 +5,7 @@
  */
 package BEAN;
 
+import CONSTANTES.Constantes;
 import DAO.MedicoDAO;
 import POCO.Medico;
 import java.sql.SQLException;
@@ -24,17 +25,17 @@ import javax.faces.context.FacesContext;
 public class MedicoBean {
 
     private MedicoDAO mdao;
-    private Medico selecionado;
+    private Medico medico;
     private String localizado;
 
     public MedicoBean() {
         mdao = new MedicoDAO();
-        selecionado = new Medico();
+        medico = new Medico();
     }
 
     public void inserir(Medico m){
         try {
-            selecionado = mdao.cadastro(m);
+            medico = mdao.cadastro(m);
                     FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Successo!", "Medico cadastrado."));
 
         } catch (SQLException ex) {
@@ -47,28 +48,33 @@ public class MedicoBean {
         return mdao.readAll();
     }
     
-    public void buscar(){
+    public void buscarCRM(){
         String[] l = new String[100];
         l = localizado.split(" ");
         int t = l.length;
-        selecionado =  mdao.getMedicoCRM(l[t-1]);
+        medico =  mdao.getMedicoCRM(l[t-1]);
+    }
+    
+    public String buscar(){
+        medico = mdao.getMedico(Constantes.USUARIO.TIPO.IDMEDICO);
+        return "medicoView";
     }
     
     public void excluir(){
-        mdao.deleta(selecionado);
+        mdao.deleta(medico);
     }
     
      public void atualizar(int id){
-        selecionado.setId(id);
-        mdao.editar(selecionado);
+        medico.setId(id);
+        mdao.editar(medico);
     }
 
-    public Medico getSelecionado() {
-        return selecionado;
+    public Medico getMedico() {
+        return medico;
     }
 
-    public void setSelecionado(Medico selecionado) {
-        this.selecionado = selecionado;
+    public void setMedico(Medico selecionado) {
+        this.medico = medico;
     }
 
     public String getLocalizado() {
