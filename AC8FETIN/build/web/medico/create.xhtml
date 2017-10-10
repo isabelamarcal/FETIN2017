@@ -15,19 +15,19 @@ and open the template in the editor.
         <title>Cadastro medico</title>
     </h:head>
     <h:body class="backgroundClass">
-               <p:tooltip />
+        <p:tooltip />
         <p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" />
- 
+
         <div  id="centerButtons" >
             <h1 class="default-h1">Cadastro Médico</h1>
-            <h:form  >
+            <h:form>
                 <table align='center'  class="formStyle">
                     <tr>
                         <td></td>
                         <td>                    <p:outputLabel class="inputStyle" value="Nome*:  "/>
                         </td>
                         <td > <p:inputText class="inputStyle" id="nome" value="#{medico.nomeCompleto}" 
-                                          required="true" requiredMessage="Digite um nome!" />
+                                           required="true" requiredMessage="Digite um nome!" />
                         </td>
                     </tr>
                     <tr>
@@ -55,8 +55,8 @@ and open the template in the editor.
                         <td>
                             <p:outputLabel class="inputStyle" value="Login*:  "/>
                         </td>
-                        <td>                        <p:inputText class="inputStyle" id="login" value="#{medico.login}" 
-                                                                 required="true" requiredMessage="Digite seu login!" />
+                        <td>     <p:inputText class="inputStyle" id="login" value="#{medico.login}" 
+                                          required="true" requiredMessage="Digite seu login!" />
                         </td>
                     </tr>
                     <tr>
@@ -66,13 +66,13 @@ and open the template in the editor.
                         </td>
                         <td>
                             <p:password  id="senha" class="inputStyle" value="#{medico.senha}" 
-                                        required="true" requiredMessage="Digite sua senha!" />
+                                         required="true" requiredMessage="Digite sua senha!" />
                         </td>
-                        </tr>
-                            </table>
+                    </tr>
+                </table>
                 <br></br>
-                            <p:commandButton class="commandButtonStyle" value="Cadastrar" action="#{medicoBean.inserir(medico)}"/>
-                            </h:form>
-                            </div>
-                            </h:body>
-                            </html>
+                <p:commandButton class="commandButtonStyle" value="Cadastrar" action="#{medicoBean.inserir(medico)}"/>
+            </h:form>
+        </div>
+    </h:body>
+</html>

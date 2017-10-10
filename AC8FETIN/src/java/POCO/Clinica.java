@@ -11,7 +11,7 @@ import java.util.ArrayList;
  *
  * @author Isabela
  */
-public class Clinica extends Usuario{
+public class Clinica {
     private int id;
     private String endereco;
     private String cidade;

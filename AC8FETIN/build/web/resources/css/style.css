@@ -28,7 +28,9 @@ and open the template in the editor.
 }
 .backgroundClass{
     background-image:url("/AC8FETIN/faces/resources/images/meConsultabg_1.png");
-      
+    background-repeat:no-repeat;
+background-size:120%;
+background-position:center;  
 }
 
 .formStyle{
