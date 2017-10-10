@@ -31,14 +31,14 @@ public class PacienteBean {
         paciente = new Paciente();
     }
 
-    public void inserir(Paciente p) {
+    public String inserir(Paciente p) {
         try {
             paciente = pdao.cadastro(p);
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Successo!", "Paciente cadastrado."));
         } catch (SQLException ex) {
             Logger.getLogger(MedicoBean.class.getName()).log(Level.SEVERE, null, ex);
         }
-        //     return "login";
+        return "PacienteLogin";
     }
 
 //    

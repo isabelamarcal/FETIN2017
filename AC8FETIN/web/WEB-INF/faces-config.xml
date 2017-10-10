@@ -81,4 +81,18 @@
             <to-view-id>/paciente/read.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/paciente/create.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>PacienteLogin</from-outcome>
+            <to-view-id>/login.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/medico/create.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>MedicoLogin</from-outcome>
+            <to-view-id>/login.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
 </faces-config>

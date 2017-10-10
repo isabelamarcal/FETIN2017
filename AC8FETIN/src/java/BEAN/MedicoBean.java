@@ -33,7 +33,7 @@ public class MedicoBean {
         medico = new Medico();
     }
 
-    public void inserir(Medico m){
+    public String inserir(Medico m){
         try {
             medico = mdao.cadastro(m);
                     FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Successo!", "Medico cadastrado."));
@@ -41,7 +41,7 @@ public class MedicoBean {
         } catch (SQLException ex) {
             Logger.getLogger(MedicoBean.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+        return "MedicoLogin";
     }
     
     public List<Medico> listaMedicos(){

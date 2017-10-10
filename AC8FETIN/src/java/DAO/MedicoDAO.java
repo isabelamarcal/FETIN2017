@@ -66,7 +66,6 @@ public class MedicoDAO {
                 data.setNomeCompleto(rs.getString("nomeCompleto"));
                 data.setEspecialidade(rs.getString("especialidade"));
                 data.setCrm(rs.getString("crm"));
-
             }
             st.close();
             conn.close();
