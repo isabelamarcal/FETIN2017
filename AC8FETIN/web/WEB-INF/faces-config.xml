@@ -9,9 +9,14 @@
             <from-outcome>case1</from-outcome>
             <to-view-id>/menu.xhtml</to-view-id>
         </navigation-case>
+        
         <navigation-case>
             <from-outcome>medicoDashboard</from-outcome>
             <to-view-id>/medico/dashboard.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>pacienteDashboard</from-outcome>
+            <to-view-id>/paciente/dashboard.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
 </faces-config>

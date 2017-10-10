@@ -14,30 +14,47 @@ and open the template in the editor.
         <h:outputStylesheet name="/css/style.css"/>
         <title>Cadastro paciente</title>
     </h:head>
-    <h:body>
+    <h:body class="backgroundClass">
+        <p:tooltip />
+        <p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" />
+ 
         <div id="centerButtons">
             <h:form>
-                <p:outputLabel value="Nome*:  "/>
-                <p:inputText id="nome" value="#{paciente.nomeCompleto}" 
-                             required="true" requiredMessage="Digite um nome!" />
+                <table align='center'  class="formStyle">
+                    <tr>
+                        <td>
+                            <p:outputLabel class="inputStyle" value="Nome*:  "/>
+                        </td><td><p:inputText id="nome" class="inputStyle" value="#{paciente.nomeCompleto}" 
+                                              required="true" requiredMessage="Digite um nome!" />
+                        </td></tr>
+                    <tr>
+                        <td>
+                            <p:outputLabel class="inputStyle" value="Tipo sanguineo*:  "/>
+                        </td><td>
+                            <p:inputText class="inputStyle" id="crm" value="#{paciente.tipoSanguineo}" 
+                                         required="true" requiredMessage="Digite seu tipo sanguineo!" />
+                        </td></tr>
+                    <tr><td>
+                            <p:outputLabel class="inputStyle" value="Login*:  "/>
+                        </td><td>
+                            <p:inputText class="inputStyle" id="login" value="#{paciente.login}" 
+                                         required="true" requiredMessage="Digite seu login!" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p:outputLabel class="inputStyle" value="Senha*:  "/>
+                        </td><td>
+                            <p:password class="inputStyle" id="senha" value="#{paciente.senha}" 
+                                        required="true" requiredMessage="Digite sua senha!" />
+                        </td>
+                    </tr>
+                </table>
+ 
+                <br></br>
+                                <br></br>
 
-                <br/> <br/>
-                <p:outputLabel value="Tipo sanguineo*:  "/>
-                <p:inputText id="crm" value="#{paciente.tipoSanguineo}" 
-                             required="true" requiredMessage="Digite seu tipo sanguineo!" />
-                <br/> <br/>
-
-                <p:outputLabel value="Login*:  "/>
-                <p:inputText id="login" value="#{paciente.login}" 
-                             required="true" requiredMessage="Digite seu login!" />
-                <br/> <br/>
-
-                <p:outputLabel value="Senha*:  "/>
-                <p:password id="senha" value="#{paciente.senha}" 
-                            required="true" requiredMessage="Digite sua senha!" />
-                <br/> <br/>
-
-                <p:commandButton value="Cadastrar" action="#{pacienteBean.inserir(paciente)}"/>
+                <p:commandButton class="commandButtonStyle" value="Cadastrar" action="#{pacienteBean.inserir(paciente)}"/>
             </h:form>
         </div>
     </h:body>

@@ -40,8 +40,15 @@ public class UsuarioBean {
             return "";
         }
         else{
-            pdao.login((Paciente) usuario);
-            return"";
+             Paciente m = new Paciente();
+            m.setLogin(usuario.getLogin());
+            m.setSenha(usuario.getSenha());
+            m = pdao.login(m);
+            if(m.getId()!=0){
+                        return("pacienteDashboard");
+
+            }
+            return "";
         }
     }
     

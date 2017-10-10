@@ -12,7 +12,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
+import javax.faces.context.FacesContext;
 
 /**
  *
@@ -33,9 +35,12 @@ public class MedicoBean {
     public void inserir(Medico m){
         try {
             selecionado = mdao.cadastro(m);
+                    FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Successo!", "Medico cadastrado."));
+
         } catch (SQLException ex) {
             Logger.getLogger(MedicoBean.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
     }
     
     public List<Medico> listaMedicos(){
