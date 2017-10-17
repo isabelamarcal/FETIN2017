@@ -4,13 +4,11 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/Isabela/Documents/NetBeansProjects/FETIN2017/AC8FETIN/src/java/DAO/MedicoDAO.java</file>
-            <file>file:/C:/Users/Isabela/Documents/NetBeansProjects/FETIN2017/AC8FETIN/web/index.xhtml</file>
+            <file>file:/C:/Users/Isabela/Documents/NetBeansProjects/FETIN2017/AC8FETIN/web/medico/createClinica.xhtml</file>
+            <file>file:/C:/Users/Isabela/Documents/NetBeansProjects/FETIN2017/AC8FETIN/src/java/DAO/ClinicaDAO.java</file>
             <file>file:/C:/Users/Isabela/Documents/NetBeansProjects/FETIN2017/AC8FETIN/web/medico/create.xhtml</file>
+            <file>file:/C:/Users/Isabela/Documents/NetBeansProjects/FETIN2017/AC8FETIN/src/java/POCO/Clinica.java</file>
             <file>file:/C:/Users/Isabela/Documents/NetBeansProjects/FETIN2017/AC8FETIN/src/java/POCO/Paciente.java</file>
-            <file>file:/C:/Users/Isabela/Documents/NetBeansProjects/FETIN2017/AC8FETIN/src/java/DAO/PacienteDAO.java</file>
-            <file>file:/C:/Users/Isabela/Documents/NetBeansProjects/FETIN2017/AC8FETIN/web/medico/read.xhtml</file>
-            <file>file:/C:/Users/Isabela/Documents/NetBeansProjects/FETIN2017/AC8FETIN/src/java/POCO/Usuario.java</file>
-            <file>file:/C:/Users/Isabela/Documents/NetBeansProjects/FETIN2017/AC8FETIN/web/medico/delete.xhtml</file>
             <file>file:/C:/Users/Isabela/Documents/NetBeansProjects/FETIN2017/AC8FETIN/web/resources/css/style.css</file>
         </group>
     </open-files>

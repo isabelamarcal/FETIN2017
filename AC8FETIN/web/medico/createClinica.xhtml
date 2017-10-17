@@ -1,0 +1,76 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>Cadastrar Clinica</title>
+    </h:head>
+    <h:body class="backgroundClass">
+        <p:tooltip />
+        <p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" />
+
+        <div  id="centerButtons" >
+            <h1 class="default-h1">Cadastro de Clínica</h1>
+            <h:form id="myforms">
+                <table align='center' id="mytable" class="formStyle">
+                    <tr>
+                        <td></td>
+                        <td>                    <p:outputLabel class="labelStyle" value="Endereço*:  "/>
+                        </td>
+                        <td > <p:inputText class="inputStyle" id="endereco"  value="#{clinica.endereco}" 
+                                           placeholder="ex: Clinica SRS-Rua A-233, Centro" required="true" requiredMessage="Digite um endereço!" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <p:outputLabel  class="labelStyle" value="Cidade*:  "/>
+                        </td>
+                        <td>
+                            <p:inputText class="inputStyle" id="cidade" value="#{clinica.cidade}" 
+                                         required="true" requiredMessage="Digite a cidade!" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <p:outputLabel class="labelStyle" value="Estado*:  "/>
+                        </td>
+                        <td>
+                            <p:inputText class="inputStyle" placeholder="ex: MG" id="estado" value="#{clinica.estado}" 
+                                         required="true" requiredMessage="Digite o estado!" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                       <input id="clickMe" type="button" value="Localizar Clinica" onclick="localiza();" />
+                       </td>
+                    </tr>
+                    
+                                   </table>
+                
+                <br></br>
+                <p:commandButton class="commandButtonStyle" value="Cadastrar" id="but" action="#{medicoBean.inserir(medico)}"/>
+           
+            
+            </h:form>
+        </div>
+        
+        
+    
+
+
+</h:body>
+    <script >
+    function localiza(){
+        url = "https://www.google.com.br/maps/search/";
+        +document.getElementById("endereco").value+"+"
+        +document.getElementById("cidade").value+"+"
+        +document.getElementById("estado").value;
+        console.log(url);
+       // window.open(url);
+        
+    }
+</script>
+</html>

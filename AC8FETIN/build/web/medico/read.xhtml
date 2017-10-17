@@ -16,23 +16,25 @@ and open the template in the editor.
         <ui:composition template="./../menu.xhtml">
             <ui:define name="conteudo">
 
-                    <p:outputLabel value="Id:  #{medicoBean.medico.id}"/>
-                    <br/> <br/>
+                <p:outputLabel value="Id:  #{medicoBean.medico.id}"/>
+                <br/> <br/>
 
-                    <p:outputLabel value="Nome:  #{medicoBean.medico.nomeCompleto}"/>
-                    <br/> <br/>
-                    
-                    <p:outputLabel value="Especialidade:  #{medicoBean.medico.especialidade}"/>
-                    <br/> <br/>
+                <p:outputLabel value="Nome:  #{medicoBean.medico.nomeCompleto}"/>
+                <br/> <br/>
 
-                    <p:outputLabel value="CRM:  #{medicoBean.medico.crm}"/>
-                    <br/> <br/>
-                    
-                    <p:outputLabel value="Login:  #{medicoBean.medico.login}"/>
-                    <br/> <br/>
+                <p:outputLabel value="Especialidade:  #{medicoBean.medico.especialidade}"/>
+                <br/> <br/>
 
-                    <p:outputLabel value="Senha:  #{medicoBean.medico.senha}"/>
-                    <br/> <br/>
+                <p:outputLabel value="CRM:  #{medicoBean.medico.crm}"/>
+                <br/> <br/>
+
+                <p:outputLabel value="Login:  #{medicoBean.medico.login}"/>
+                <br/> <br/>
+
+                <p:outputLabel value="Senha:  #{medicoBean.medico.senha}"/>
+                <br/> <br/>
+
+                <h:commandButton value="Editar" action="#{medicoBean.buscarUpdate()}"/>
 
             </ui:define>
         </ui:composition>

@@ -19,9 +19,22 @@
             <to-view-id>/paciente/dashboard.xhtml</to-view-id>
         </navigation-case>
         
+        
+    </navigation-rule>
+    
+    <navigation-rule>
+        <from-view-id>/medico/dashboard.xhtml</from-view-id>
         <navigation-case>
             <from-outcome>medicoView</from-outcome>
             <to-view-id>/medico/read.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+        <from-view-id>/medico/read.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>medicoUpdate</from-outcome>
+            <to-view-id>/medico/update.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
 </faces-config>

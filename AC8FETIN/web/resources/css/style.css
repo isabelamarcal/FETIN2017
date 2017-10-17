@@ -43,6 +43,12 @@ background-position:center;
     width: 300px;
 }
 
+
+.labelStyle{
+    left: 30px;
+    width: 300px;
+}
+
 .default-h1{
     color: #0032ac;
     font-family: arial;
