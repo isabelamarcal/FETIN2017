@@ -29,13 +29,13 @@ and open the template in the editor.
 .backgroundClass{
     background-image:url("/AC8FETIN/faces/resources/images/meConsultabg_1.png");
     background-repeat:no-repeat;
-background-size:120%;
-background-position:center;  
+    background-size:120%;
+    background-position:center;  
 }
 
 .formStyle{
-   width:60%;
-   left: 50px;
+    width:60%;
+    left: 50px;
 }
 
 .inputStyle{
@@ -55,7 +55,16 @@ background-position:center;
     font-size: 30px;
 }
 
-body {
+.body {
     background-image:url("images/logoMeConsulta.jpeg");
 }
 
+.headerImage{
+    left: 600px;
+}
+
+.bodyMedico {
+    background-repeat:no-repeat;
+    background-position:center;  
+    background-image:url("/AC8FETIN/faces/resources/images/medico.jpg");
+}

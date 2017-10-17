@@ -9,14 +9,19 @@
     <h:head>
         <title>Médico</title>
     </h:head>
-    <h:body>
+    <h:body style="background-image: url('/AC8FETIN/faces/resources/images/medico.jpg');">
         <ui:composition template="./../menu.xhtml">
-            <ui:define name="conteudo">
-                Aqui pro medico
+            <ui:define name="conteudo" >
+                <h3 style="color: #0032ac;
+    font-family: arial;
+    font-size: 20px;">Bem vindo!</h3>
+    
             </ui:define>
             <ui:define name="menu">
              
-                    <h3 class="default-h1">Olá Médico!</h3>
+                    <h3 style="color: #0032ac;
+    font-family: arial;
+    font-size: 20px;">Olá Médico!</h3>
                         <p:menu>
                             <p:menuitem value=" Dashboard" outcome="/medico/dashboard.xhtml" icon="ui-icon-plus"/>
                             <p:menuitem value=" Consultas" outcome="/medico/create.xhtml" icon="ui-icon-plus"/>

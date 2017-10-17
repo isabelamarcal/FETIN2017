@@ -37,4 +37,62 @@
             <to-view-id>/medico/update.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
+ 
+    <navigation-rule>
+        <from-view-id>/medico/update.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>UpdateToRead</from-outcome>
+            <to-view-id>/medico/read.xhtml</to-view-id>
+        </navigation-case>
+        
+    </navigation-rule>
+    
+    <navigation-rule>
+        <from-view-id>/medico/read.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>UpdateToIndex</from-outcome>
+            <to-view-id>/index.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/paciente/dashboard.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>pacienteView</from-outcome>
+            <to-view-id>/paciente/read.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+        <from-view-id>/paciente/read.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>pacienteUpdate</from-outcome>
+            <to-view-id>/paciente/update.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+        <from-view-id>/paciente/read.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>UpdateToIndexP</from-outcome>
+            <to-view-id>/index.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>UpdateToReadP</from-outcome>
+            <to-view-id>/paciente/read.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/paciente/create.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>PacienteLogin</from-outcome>
+            <to-view-id>/login.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/medico/create.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>MedicoLogin</from-outcome>
+            <to-view-id>/login.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
 </faces-config>

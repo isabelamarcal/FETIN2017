@@ -1,16 +1,43 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-    <head>
-        <title>TODO supply a title</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    </head>
-    <body>
-        <div>TODO write content</div>
-    </body>
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <h:outputStylesheet name="/css/style.css"/>
+        <title>Login</title>
+    </h:head>
+    <h:body>
+        <div id="centerButtons">
+            <h:form id="ind">
+                <img src="resources/images/logoMeConsulta.jpeg"/>
+                <br/> <br/><br/> <br/>
+                <p:outputLabel value="Login*:  "/>
+                <p:inputText id="login" value="#{usuario.login}" 
+                             required="true" requiredMessage="Digite seu login!" />
+                <br/> <br/>
+
+                <p:outputLabel value="Senha*:  "/>
+                <p:password id="senha" value="#{usuario.senha}" 
+                            required="true" requiredMessage="Digite sua senha!" />
+                <br/> <br/>
+                <p:selectOneRadio class="btOption" id="console" value="#{usuario.tipo}">
+                    <f:selectItem itemLabel="Médico" itemValue="Médico" />
+                    <label>&nbsp;&nbsp;&nbsp;</label>
+                    <f:selectItem itemLabel="Paciente" itemValue="Paciente" />
+                </p:selectOneRadio>
+                <br></br>
+                <p:commandButton value="Sign in" class="commandButtonStyle" action="#{usuarioBean.logar(usuario)}" ajax="false"/>
+            </h:form>
+            <br></br>
+            <br></br>
+            <a href="/AC8FETIN/faces/medico/create.xhtml" class="linkButton">Sou médico e quero me cadastrar!</a>
+            <label>&nbsp;&nbsp;&nbsp;&nbsp;</label>
+            <a href="/AC8FETIN/faces/paciente/create.xhtml" class="linkButton">Sou paciente e quero me cadastrar!</a>
+
+
+        </div>
+    </h:body>
 </html>
