@@ -13,9 +13,15 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
+import org.primefaces.model.chart.Axis;
+import org.primefaces.model.chart.AxisType;
+import org.primefaces.model.chart.CategoryAxis;
+import org.primefaces.model.chart.LineChartModel;
+import org.primefaces.model.chart.LineChartSeries;
 
 /**
  *
@@ -33,6 +39,47 @@ public class MedicoBean {
         medico = new Medico();
     }
 
+     private LineChartModel lineConsultas;
+     
+    @PostConstruct
+    public void init() {
+        createLineModels();
+    }
+    
+    private void createLineModels() {
+        lineConsultas = initLinearModel();
+        lineConsultas.setTitle("Ultimas consultas");
+        lineConsultas.setLegendPosition("e");
+        Axis yAxis = lineConsultas.getAxis(AxisType.Y);
+        lineConsultas.setShowPointLabels(true);
+        lineConsultas.getAxes().put(AxisType.X, new CategoryAxis("Months"));
+        yAxis = lineConsultas.getAxis(AxisType.Y);
+        yAxis.setMin(0);
+        yAxis.setMax(10);
+         
+        
+    }
+ 
+    public LineChartModel getLineConsultas() {
+        return lineConsultas;
+    }
+     private LineChartModel initLinearModel() {
+        LineChartModel model = new LineChartModel();
+ 
+        LineChartSeries series1 = new LineChartSeries();
+        series1.setLabel("Nº de consultas");
+ 
+        series1.set(1, 2);
+        series1.set(2, 1);
+        series1.set(3, 3);
+        series1.set(4, 6);
+        series1.set(5, 8);
+ 
+        model.addSeries(series1);
+         
+        return model;
+    }
+    
     public String inserir(Medico m){
         try {
             medico = mdao.cadastro(m);
