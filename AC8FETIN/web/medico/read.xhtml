@@ -14,6 +14,18 @@ and open the template in the editor.
     <h:body>
 
         <ui:composition template="./../menu.xhtml">
+            <ui:define name="menu">
+
+                <h3 style="color: #0032ac;
+                    font-family: arial;
+                    font-size: 20px;">Olá Médico!</h3>
+                <p:menu>
+                    <p:menuitem value=" Dashboard" outcome="/medico/dashboard.xhtml" icon="ui-icon-plus"/>
+                    <p:menuitem value=" Consultas" outcome="/medico/create.xhtml" icon="ui-icon-plus"/>
+                    <p:menuitem value=" Meus Dados" id="menuzinho" action="#{medicoBean.buscarView}" icon="ui-icon-person" ajax="false"/>
+                </p:menu>
+
+            </ui:define>
             <ui:define name="conteudo">
 
                 <p:outputLabel value="Id:  #{medicoBean.medico.id}"/>
