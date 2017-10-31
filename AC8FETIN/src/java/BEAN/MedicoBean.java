@@ -6,7 +6,9 @@
 package BEAN;
 
 import CONSTANTES.Constantes;
+import DAO.ClinicaDAO;
 import DAO.MedicoDAO;
+import POCO.Clinica;
 import POCO.Medico;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -41,9 +43,32 @@ public class MedicoBean {
 
      private LineChartModel lineConsultas;
      
+     private List<Clinica> clinicas = new ArrayList<Clinica>();
+     private List<Clinica> selectedClinicas = new ArrayList<Clinica>();
+
+    public List<Clinica> getClinicas() {
+        return clinicas;
+    }
+
+    public void setClinicas(List<Clinica> clinicas) {
+        this.clinicas = clinicas;
+    }
+
+    public List<Clinica> getSelectedClinicas() {
+        return selectedClinicas;
+    }
+
+    public void setSelectedClinicas(List<Clinica> selectedClinicas) {
+        this.selectedClinicas = selectedClinicas;
+    }
+     
+     
+
     @PostConstruct
     public void init() {
         createLineModels();
+        loadClinicas();
+        
     }
     
     private void createLineModels() {
@@ -139,5 +164,10 @@ public class MedicoBean {
     public void setLocalizado(String localizado) {
         this.localizado = localizado;
     }
+
+    private void loadClinicas() {
+        
+        this.clinicas = new ClinicaDAO().readAll();
+         }
 
 }

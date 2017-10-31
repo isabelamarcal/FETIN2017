@@ -8,7 +8,8 @@ and open the template in the editor.
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:p="http://primefaces.org/ui"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <h:outputStylesheet name="/css/style.css"/>
@@ -67,6 +68,34 @@ and open the template in the editor.
                         <td>
                             <p:password  id="senha" class="inputStyle" value="#{medico.senha}" 
                                          required="true" requiredMessage="Digite sua senha!" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p:outputLabel  class="inputStyle" value="Clinicas:  "/>
+                        </td>
+                        <td>
+                            <p:inputTextarea class="inputStyle"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p:outputLabel  class="inputStyle" value="Nova Clinica  "/>
+                        </td>
+                        
+                        <td>
+                            <p:selectCheckboxMenu id="CHECKBOX" value="#{medicoBean.selectedClinicas}" label="Clinicas"
+                              filter="true" filterMatchMode="startsWith" panelStyle="width:250px">
+            <f:selectItems value="#{medicoBean.clinicas}" />
+        </p:selectCheckboxMenu>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="/AC8FETIN/faces/medico/createClinica" > Cadastrar Clinica  </a>>
+                        </td>
+                        
+                        <td>
                         </td>
                     </tr>
                 </table>
