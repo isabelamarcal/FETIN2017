@@ -183,7 +183,7 @@ public class MedicoDAO {
 
     }
     
-    public void addClinica(int medicoId, int clinicaId) {
+    public void addClinica(int medicoId, String clinicaId) {
         try {
             Connection conn = ConnectionManager.Conectar();
 
