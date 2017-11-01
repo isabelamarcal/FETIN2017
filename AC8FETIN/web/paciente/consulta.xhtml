@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <h:outputStylesheet name="/css/style.css"/>
+        <title>Consulta paciente</title>
+    </h:head>
+    <h:body class="backgroundClass">
+        <p:tooltip/>
+        <p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" />
+
+        <div id="centerButtons">
+            <h1 class="default-h1">Marcar consulta</h1>
+            <h:form>
+                <table align='center'  class="formStyle">
+                    <tr>
+                        <td>
+                            <p:outputLabel class="inputStyle" value="Médico*:  "/>
+                        </td><td><p:selectOneMenu id="medico" value="#{medicoBean.localizado}">
+                                <f:selectItems value="#{medicoBean.listaMedicos()}"
+                                               var="u" itemLabel="#{u.nomeCompleto}, CRM: #{u.crm}" itemValue="#{u.nomeCompleto},  CRM: #{u.crm}"/>
+                            </p:selectOneMenu>
+                        </td></tr>
+                    <tr>
+                        <td>
+                            <p:outputLabel class="inputStyle" value="Clínica*:  "/>
+                        </td><td>
+                            <p:selectOneMenu id="clinica" value="#{medicoBean.localizado}">
+                                <f:selectItems value="#{medicoBean.listaMedicos()}"
+                                               var="u" itemLabel="#{u.nomeCompleto}, CRM: #{u.crm}" itemValue="#{u.nomeCompleto},  CRM: #{u.crm}"/>
+                            </p:selectOneMenu>
+                        </td></tr>
+                    <tr><td>
+                            <p:outputLabel class="inputStyle" value="Data e hora*:  "/>
+                        </td><td>
+                            <p:calendar id="datetime" value="#{calendarView.date10}" pattern="MM/dd/yyyy HH:mm:ss" />
+                        </td>
+                    </tr>
+                </table>
+
+                <br></br>
+                <br></br>
+
+                <p:commandButton class="commandButtonStyle" onclick="alerta();" value="Cadastrar" action="#{pacienteBean.inserir(paciente)}"/>
+            </h:form>
+        </div>
+    </h:body>
+    <script>
+        function alerta() {
+            alert("Paciente cadastrado com sucesso!");
+        }
+    </script>
+</html>
