@@ -105,6 +105,35 @@ public class ClinicaDAO {
             return null;
         }
     }
+    
+    public List<Clinica> clinicaByMedico(int idMedico) {
+
+        try {
+            Connection conn = ConnectionManager.Conectar();
+
+            String sql = "SELECT * FROM clinica inner join clinica_has_medico where  clinica.idClinica = clinica_has_medico.Clinica_idclinica and clinica_has_medico.Medico_idMedico = "+ idMedico +";";
+
+            Statement st = conn.createStatement();
+
+            ResultSet rs = st.executeQuery(sql);
+            List<Clinica> datas = new ArrayList<Clinica>();
+            while (rs.next()) {
+                Clinica data = new Clinica();
+
+                data.setId(rs.getInt("idClinica"));
+                data.setCidade(rs.getString("cidade"));
+                data.setEndereco(rs.getString("endereco"));
+                data.setEstado(rs.getString("estado"));
+                datas.add(data);
+            }
+            st.close();
+            conn.close();
+                    return datas;
+
+        } catch (Exception ex) {
+            return null;
+        }
+    }
 
     public void editar(Clinica data) {
         try {

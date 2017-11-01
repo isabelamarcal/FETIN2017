@@ -5,6 +5,7 @@
  */
 package DAO;
 
+import POCO.Clinica;
 import POCO.Medico;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -118,6 +119,9 @@ public class MedicoDAO {
                 data.setLogin(rs.getString("login"));
                 data.setSenha(rs.getString("senha"));
                 data.setEspecialidade(rs.getString("especialidade"));
+                
+                ArrayList<Clinica> clinicas = (ArrayList<Clinica>) new ClinicaDAO().clinicaByMedico(data.getId());
+                data.setClinicas(clinicas);
             }
             st.close();
             conn.close();
@@ -147,6 +151,9 @@ public class MedicoDAO {
                 data.setSenha(rs.getString("senha"));
                 data.setEspecialidade(rs.getString("especialidade"));
                 datas.add(data);
+                
+                ArrayList<Clinica> clinicas = (ArrayList<Clinica>) new ClinicaDAO().clinicaByMedico(data.getId());
+                data.setClinicas(clinicas);
             }
             st.close();
             conn.close();
@@ -176,7 +183,7 @@ public class MedicoDAO {
 
     }
     
-    public void addClinica(int medicoId, int clinicaId) {
+    public void addClinica(int medicoId, String clinicaId) {
         try {
             Connection conn = ConnectionManager.Conectar();
 

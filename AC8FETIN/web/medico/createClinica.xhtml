@@ -1,24 +1,28 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:p="http://primefaces.org/ui"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <title>Cadastrar Clinica</title>
     </h:head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <h:outputStylesheet name="/css/style.css"/>
     <h:body class="backgroundClass">
         <p:tooltip />
         <p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" />
 
         <div  id="centerButtons" >
             <h1 class="default-h1">Cadastro de Clínica</h1>
-            <h:form id="myforms">
+            <h:form >
                 <table align='center' id="mytable" class="formStyle">
                     <tr>
                         <td></td>
                         <td>                    <p:outputLabel class="labelStyle" value="Endereço*:  "/>
                         </td>
-                        <td > <p:inputText class="inputStyle" id="endereco"  value="#{clinica.endereco}" 
+                        <td > <p:inputText class="inputStyle" id="endereco"  value="#{clinicaBean.clinica.endereco}" 
                                            placeholder="ex: Clinica SRS-Rua A-233, Centro" required="true" requiredMessage="Digite um endereço!" />
                         </td>
                     </tr>
@@ -28,7 +32,7 @@
                             <p:outputLabel  class="labelStyle" value="Cidade*:  "/>
                         </td>
                         <td>
-                            <p:inputText class="inputStyle" id="cidade" value="#{clinica.cidade}" 
+                            <p:inputText class="inputStyle" id="cidade" value="#{clinicaBean.clinica.cidade}" 
                                          required="true" requiredMessage="Digite a cidade!" />
                         </td>
                     </tr>
@@ -38,39 +42,22 @@
                             <p:outputLabel class="labelStyle" value="Estado*:  "/>
                         </td>
                         <td>
-                            <p:inputText class="inputStyle" placeholder="ex: MG" id="estado" value="#{clinica.estado}" 
+                            <p:inputText class="inputStyle" placeholder="ex: MG" id="estado" value="#{clinicaBean.clinica.estado}" 
                                          required="true" requiredMessage="Digite o estado!" />
                         </td>
                     </tr>
-                    <tr>
-                        <td>
-                       <input id="clickMe" type="button" value="Localizar Clinica" onclick="localiza();" />
-                       </td>
-                    </tr>
-                    
-                                   </table>
-                
+
+                </table>
+
                 <br></br>
-                <p:commandButton class="commandButtonStyle" value="Cadastrar" id="but" action="#{medicoBean.inserir(medico)}"/>
-           
-            
+                <p:commandButton class="commandButtonStyle" value="Cadastrar" ajax="false"  id="butId" action="#{clinicaBean.criarClinica(clinicaBean.clinica)}"/>
+
+
             </h:form>
         </div>
-        
-        
-    
 
-
-</h:body>
+    </h:body>
     <script >
-    function localiza(){
-        url = "https://www.google.com.br/maps/search/";
-        +document.getElementById("endereco").value+"+"
-        +document.getElementById("cidade").value+"+"
-        +document.getElementById("estado").value;
-        console.log(url);
-       // window.open(url);
-        
-    }
-</script>
+       
+    </script>
 </html>

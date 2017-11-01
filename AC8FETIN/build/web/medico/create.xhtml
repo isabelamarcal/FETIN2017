@@ -8,7 +8,8 @@ and open the template in the editor.
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:p="http://primefaces.org/ui"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <h:outputStylesheet name="/css/style.css"/>
@@ -56,7 +57,7 @@ and open the template in the editor.
                             <p:outputLabel class="inputStyle" value="Login*:  "/>
                         </td>
                         <td>     <p:inputText class="inputStyle" id="login" value="#{medico.login}" 
-                                          required="true" requiredMessage="Digite seu login!" />
+                                              required="true" requiredMessage="Digite seu login!" />
                         </td>
                     </tr>
                     <tr>
@@ -69,6 +70,28 @@ and open the template in the editor.
                                          required="true" requiredMessage="Digite sua senha!" />
                         </td>
                     </tr>
+                    
+                    <tr>
+                        <td></td>
+                        <td>
+                            <p:outputLabel  class="inputStyle" value="Nova Clinica  "/>
+                        </td>
+                        
+                        <td>
+                            <p:selectCheckboxMenu id="CHECKBOX" value="#{medicoBean.selectedClinicas}" label="Clinicas"
+                              filter="true" filterMatchMode="startsWith" panelStyle="width:250px">
+            <f:selectItems value="#{medicoBean.clinicas}" />
+        </p:selectCheckboxMenu>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td>
+                            <a href="/AC8FETIN/faces/medico/createClinica.xhtml" > Cadastrar Clinica  </a>
+                        </td>
+                        
+                    </tr>
                 </table>
                 <br></br>
                 <p:commandButton class="commandButtonStyle" onclick="alerta();" value="Cadastrar" action="#{medicoBean.inserir(medico)}"/>
@@ -76,7 +99,7 @@ and open the template in the editor.
         </div>
     </h:body>
     <script>
-        function alerta(){
+        function alerta() {
             alert("Médico cadastrado com sucesso!");
         }
     </script>

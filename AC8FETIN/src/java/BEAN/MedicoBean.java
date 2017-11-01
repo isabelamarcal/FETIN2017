@@ -6,7 +6,9 @@
 package BEAN;
 
 import CONSTANTES.Constantes;
+import DAO.ClinicaDAO;
 import DAO.MedicoDAO;
+import POCO.Clinica;
 import POCO.Medico;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -32,20 +34,43 @@ public class MedicoBean {
 
     private MedicoDAO mdao;
     private Medico medico;
+
     private String localizado;
 
     public MedicoBean() {
         mdao = new MedicoDAO();
         medico = new Medico();
+
     }
 
-     private LineChartModel lineConsultas;
-     
+    private LineChartModel lineConsultas;
+
+    private List<Clinica> clinicas = new ArrayList<Clinica>();
+    private List<String> selectedClinicas = new ArrayList<String>();
+
+    public List<Clinica> getClinicas() {
+        return clinicas;
+    }
+
+    public void setClinicas(List<Clinica> clinicas) {
+        this.clinicas = clinicas;
+    }
+
+    public List<String> getSelectedClinicas() {
+        return selectedClinicas;
+    }
+
+    public void setSelectedClinicas(List<String> selectedClinicas) {
+        this.selectedClinicas = selectedClinicas;
+    }
+
     @PostConstruct
     public void init() {
         createLineModels();
+        loadClinicas();
+
     }
-    
+
     private void createLineModels() {
         lineConsultas = initLinearModel();
         lineConsultas.setTitle("Ultimas consultas");
@@ -56,69 +81,74 @@ public class MedicoBean {
         yAxis = lineConsultas.getAxis(AxisType.Y);
         yAxis.setMin(0);
         yAxis.setMax(10);
-         
-        
+
     }
- 
+
     public LineChartModel getLineConsultas() {
         return lineConsultas;
     }
-     private LineChartModel initLinearModel() {
+
+    private LineChartModel initLinearModel() {
         LineChartModel model = new LineChartModel();
- 
+
         LineChartSeries series1 = new LineChartSeries();
         series1.setLabel("Nº de consultas");
- 
+
         series1.set(1, 2);
         series1.set(2, 1);
         series1.set(3, 3);
         series1.set(4, 6);
         series1.set(5, 8);
- 
+
         model.addSeries(series1);
-         
+
         return model;
     }
-    
-    public String inserir(Medico m){
-        try {
-            medico = mdao.cadastro(m);
-                    FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Successo!", "Medico cadastrado."));
 
+    public String inserir(Medico m) {
+        try {
+
+            medico = mdao.cadastro(m);
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Successo!", "Medico cadastrado."));
+            if (this.selectedClinicas != null) {
+                for (String clinica : this.selectedClinicas) {
+                    mdao.addClinica(medico.getId(), clinica.split(",")[0]);
+                }
+            }
         } catch (SQLException ex) {
             Logger.getLogger(MedicoBean.class.getName()).log(Level.SEVERE, null, ex);
         }
         return "MedicoLogin";
     }
-    
-    public List<Medico> listaMedicos(){
+
+    public List<Medico> listaMedicos() {
         return mdao.readAll();
     }
-    
-    public void buscarCRM(){
+
+    public void buscarCRM() {
         String[] l = new String[100];
         l = localizado.split(" ");
         int t = l.length;
-        medico =  mdao.getMedicoCRM(l[t-1]);
+        medico = mdao.getMedicoCRM(l[t - 1]);
     }
-    
-    public String buscarView(){
+
+    public String buscarView() {
         medico = mdao.getMedico(Constantes.USUARIO.TIPO.IDMEDICO);
         return "medicoView";
     }
-    
-    public String buscarUpdate(){
+
+    public String buscarUpdate() {
         medico = mdao.getMedico(Constantes.USUARIO.TIPO.IDMEDICO);
         return "medicoUpdate";
     }
-    
-    public String excluir(){
+
+    public String excluir() {
         medico = mdao.getMedico(Constantes.USUARIO.TIPO.IDMEDICO);
         mdao.deleta(medico);
         return "UpdateToIndex";
     }
-    
-     public String atualizar(int id){
+
+    public String atualizar(int id) {
         medico.setId(id);
         mdao.editar(medico);
         return "UpdateToRead";
@@ -138,6 +168,11 @@ public class MedicoBean {
 
     public void setLocalizado(String localizado) {
         this.localizado = localizado;
+    }
+
+    private void loadClinicas() {
+
+        this.clinicas = new ClinicaDAO().readAll();
     }
 
 }

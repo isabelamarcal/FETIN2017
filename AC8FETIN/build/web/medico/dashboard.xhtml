@@ -13,21 +13,21 @@
         <ui:composition template="./../menu.xhtml">
             <ui:define name="conteudo" >
                 <h3 style="color: #0032ac;
-    font-family: arial;
-    font-size: 20px;">Bem vindo!</h3>
-    <p:chart type="line" model="#{medicoBean.lineConsultas}" style="height:300px;"/>
+                    font-family: arial;
+                    font-size: 20px;">Bem vindo!</h3>
+                <p:chart type="line" model="#{medicoBean.lineConsultas}" style="height:300px;"/>
             </ui:define>
             <ui:define name="menu">
-             
-                    <h3 style="color: #0032ac;
-    font-family: arial;
-    font-size: 20px;">Olá Médico!</h3>
-                        <p:menu>
-                            <p:menuitem value=" Dashboard" outcome="/medico/dashboard.xhtml" icon="ui-icon-plus"/>
-                            <p:menuitem value=" Consultas" outcome="/medico/create.xhtml" icon="ui-icon-plus"/>
-                            <p:menuitem value=" Meus Dados" id="menuzinho" action="#{medicoBean.buscarView}" icon="ui-icon-person" ajax="false"/>
-                        </p:menu>
-               
+
+                <h3 style="color: #0032ac;
+                    font-family: arial;
+                    font-size: 20px;">Olá Médico!</h3>
+                <p:menu>
+                    <p:menuitem value=" Dashboard" outcome="/medico/dashboard.xhtml" icon="ui-icon-plus"/>
+                    <p:menuitem value=" Consultas" outcome="/medico/create.xhtml" icon="ui-icon-plus"/>
+                    <p:menuitem value=" Meus Dados" id="menuzinho" action="#{medicoBean.buscarView}" icon="ui-icon-person" ajax="false"/>
+                </p:menu>
+
             </ui:define>
         </ui:composition>
     </h:body>

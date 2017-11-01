@@ -58,6 +58,11 @@ public class Clinica {
     public void setEstado(String estado) {
         this.estado = estado;
     }
+
+    @Override
+    public String toString() {
+        return    id+","+endereco + ", " + cidade + ", " + estado ;
+    }
     
     
 

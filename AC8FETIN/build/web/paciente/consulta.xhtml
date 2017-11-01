@@ -8,46 +8,43 @@ and open the template in the editor.
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:p="http://primefaces.org/ui"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
     <h:head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <h:outputStylesheet name="/css/style.css"/>
-        <title>Cadastro paciente</title>
+        <title>Consulta paciente</title>
     </h:head>
     <h:body class="backgroundClass">
-        <p:tooltip />
+        <p:tooltip/>
         <p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" />
 
         <div id="centerButtons">
-            <h1 class="default-h1">Cadastro Paciente</h1>
+            <h1 class="default-h1">Marcar consulta</h1>
             <h:form>
                 <table align='center'  class="formStyle">
                     <tr>
                         <td>
-                            <p:outputLabel class="inputStyle" value="Nome*:  "/>
-                        </td><td><p:inputText id="nome" class="inputStyle" value="#{paciente.nomeCompleto}" 
-                                              required="true" requiredMessage="Digite um nome!" />
+                            <p:outputLabel class="inputStyle" value="Médico*:  "/>
+                        </td><td><p:selectOneMenu id="medico" value="#{medicoBean.localizado}">
+                                <f:selectItems value="#{medicoBean.listaMedicos()}"
+                                               var="u" itemLabel="#{u.nomeCompleto}, CRM: #{u.crm}" itemValue="#{u.nomeCompleto},  CRM: #{u.crm}"/>
+                            </p:selectOneMenu>
                         </td></tr>
                     <tr>
                         <td>
-                            <p:outputLabel class="inputStyle" value="Tipo sanguineo*:  "/>
+                            <p:outputLabel class="inputStyle" value="Clínica*:  "/>
                         </td><td>
-                            <p:inputText class="inputStyle" id="crm" value="#{paciente.tipoSanguineo}" 
-                                         required="true" requiredMessage="Digite seu tipo sanguineo!" />
+                            <p:selectOneMenu id="clinica" value="#{medicoBean.localizado}">
+                                <f:selectItems value="#{medicoBean.listaMedicos()}"
+                                               var="u" itemLabel="#{u.nomeCompleto}, CRM: #{u.crm}" itemValue="#{u.nomeCompleto},  CRM: #{u.crm}"/>
+                            </p:selectOneMenu>
                         </td></tr>
                     <tr><td>
-                            <p:outputLabel class="inputStyle" value="Login*:  "/>
+                            <p:outputLabel class="inputStyle" value="Data e hora*:  "/>
                         </td><td>
-                            <p:inputText class="inputStyle" id="login" value="#{paciente.login}" 
-                                         required="true" requiredMessage="Digite seu login!" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <p:outputLabel class="inputStyle" value="Senha*:  "/>
-                        </td><td>
-                            <p:password class="inputStyle" id="senha" value="#{paciente.senha}" 
-                                        required="true" requiredMessage="Digite sua senha!" />
+                            <p:calendar id="datetime" value="#{calendarView.date10}" pattern="MM/dd/yyyy HH:mm:ss" />
                         </td>
                     </tr>
                 </table>
