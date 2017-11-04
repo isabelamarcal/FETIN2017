@@ -88,5 +88,9 @@ public class PacienteBean {
     public void setPaciente(Paciente paciente) {
         this.paciente = paciente;
     }
-
+    
+    public Paciente getCurrentPaciente(){
+        return pdao.getPaciente(Constantes.USUARIO.TIPO.IDPACIENTE);
+    }
+    
 }

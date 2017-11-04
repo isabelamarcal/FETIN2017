@@ -125,12 +125,14 @@ public class MedicoBean {
         return mdao.readAll();
     }
 
-    public void buscarCRM() {
+    public Medico buscarCRM(String selected) {
         String[] l = new String[100];
-        l = localizado.split(" ");
+        l = selected.split(" ");
         int t = l.length;
         medico = mdao.getMedicoCRM(l[t - 1]);
+        return medico;
     }
+    
 
     public String buscarView() {
         medico = mdao.getMedico(Constantes.USUARIO.TIPO.IDMEDICO);
@@ -171,7 +173,6 @@ public class MedicoBean {
     }
 
     private void loadClinicas() {
-
         this.clinicas = new ClinicaDAO().readAll();
     }
 

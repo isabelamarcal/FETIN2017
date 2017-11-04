@@ -6,11 +6,13 @@
 package POCO;
 
 import java.util.Date;
+import javax.faces.bean.ManagedBean;
 
 /**
  *
  * @author Isabela
  */
+@ManagedBean
 public class Consulta {
     private Date data;
     private Clinica clinica;

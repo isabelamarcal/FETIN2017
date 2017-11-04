@@ -49,7 +49,32 @@ public class ClinicaDAO {
         return data;
 
     }
+     
+    
+        public Clinica getClinicaEndereco(String endereco) {
+        Clinica data = new Clinica();
+        try {
+            Connection conn = ConnectionManager.Conectar();
 
+            String sql = "SELECT * FROM clinica WHERE endereco LIKE " + endereco + " ;";
+
+            Statement st = conn.createStatement();
+
+            ResultSet rs = st.executeQuery(sql);
+
+            while (rs.next()) {
+                data.setId(rs.getInt("idClinica"));
+                data.setCidade(rs.getString("cidade"));
+                data.setEndereco(rs.getString("endereco"));
+                data.setEstado(rs.getString("estado"));
+                
+            }
+            st.close();
+            conn.close();
+        } catch (Exception ex) {
+        }
+        return data;
+    }
    
 
     public Clinica getClinica(int id) {
@@ -82,7 +107,7 @@ public class ClinicaDAO {
         try {
             Connection conn = ConnectionManager.Conectar();
 
-            String sql = "SELECT * FROM clinica  ;";
+            String sql = "SELECT * FROM clinica;";
 
             Statement st = conn.createStatement();
 

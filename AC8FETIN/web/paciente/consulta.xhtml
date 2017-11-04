@@ -26,25 +26,25 @@ and open the template in the editor.
                 <table align='center'  class="formStyle">
                     <tr>
                         <td>
-                            <p:outputLabel class="inputStyle" value="Médico*:  "/>
-                        </td><td><p:selectOneMenu id="medico" value="#{medicoBean.localizado}">
+                            <p:outputLabel class="medicos" value="Médico*:  "/>
+                        </td><td><p:selectOneMenu id="medico" value="#{consultaBean.medicoSelecionado}">
                                 <f:selectItems value="#{medicoBean.listaMedicos()}"
                                                var="u" itemLabel="#{u.nomeCompleto}, CRM: #{u.crm}" itemValue="#{u.nomeCompleto},  CRM: #{u.crm}"/>
                             </p:selectOneMenu>
                         </td></tr>
                     <tr>
                         <td>
-                            <p:outputLabel class="inputStyle" value="Clínica*:  "/>
+                            <p:outputLabel class="clinicas" value="Clínica*:  "/>
                         </td><td>
-                            <p:selectOneMenu id="clinica" value="#{medicoBean.localizado}">
-                                <f:selectItems value="#{medicoBean.listaMedicos()}"
-                                               var="u" itemLabel="#{u.nomeCompleto}, CRM: #{u.crm}" itemValue="#{u.nomeCompleto},  CRM: #{u.crm}"/>
+                            <p:selectOneMenu id="clinica" value="#{consultaBean.clinicaSelecionada}">
+                                <f:selectItems value="#{medicoBean.clinicas}"
+                                               var="uu" itemLabel="#{uu.endereco}, Cidade: #{uu.cidade}, Estado: #{uu.estado}" itemValue="#{uu.endereco}, #{uu.cidade}, #{uu.estado}"/>
                             </p:selectOneMenu>
                         </td></tr>
                     <tr><td>
-                            <p:outputLabel class="inputStyle" value="Data e hora*:  "/>
+                            <p:outputLabel class="datas" value="Data e hora*:  "/>
                         </td><td>
-                            <p:calendar id="datetime" value="#{calendarView.date10}" pattern="MM/dd/yyyy HH:mm:ss" />
+                            <p:calendar id="datetime" value="#{consultaBean.dataSelecionada}" pattern="MM/dd/yyyy HH:mm:ss" />
                         </td>
                     </tr>
                 </table>
