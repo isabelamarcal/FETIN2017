@@ -129,7 +129,7 @@ public class MedicoBean {
         String[] l = new String[100];
         l = selected.split(" ");
         int t = l.length;
-        medico = mdao.getMedicoCRM(l[t - 1]);
+        medico = new MedicoDAO().getMedicoCRM(l[t - 1]);
         return medico;
     }
     

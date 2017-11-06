@@ -56,7 +56,7 @@ public class ClinicaDAO {
         try {
             Connection conn = ConnectionManager.Conectar();
 
-            String sql = "SELECT * FROM clinica WHERE endereco LIKE " + endereco + " ;";
+            String sql = "SELECT * FROM clinica WHERE endereco LIKE '" + endereco + "' ;";
 
             Statement st = conn.createStatement();
 

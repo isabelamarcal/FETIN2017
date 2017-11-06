@@ -27,16 +27,17 @@ public class ConsultaBean {
     private String medicoSelecionado;
     private Date dataSelecionada;
     private String data;
-    private MedicoBean mbean;
-    private ClinicaBean cbean;
-    private PacienteBean pbean;
+    private MedicoBean mbean = new MedicoBean();
+    private ClinicaBean cbean=new ClinicaBean();
+    private PacienteBean pbean = new PacienteBean();
     private Consulta consulta;
     private Clinica clinica;
     private Medico medico;
     private Paciente paciente;
-    private ConsultaDAO cdao;
+    private ConsultaDAO cdao = new ConsultaDAO();
 
     public void inserir() throws SQLException{
+        try{
         clinica = cbean.buscarClinicabyEndereco(clinicaSelecionada);
         //data = formatter.format(dataSelecionada);
         medico = mbean.buscarCRM(medicoSelecionado);
@@ -47,6 +48,9 @@ public class ConsultaBean {
         consulta.setData(dataSelecionada);
         consulta.setPaciente(paciente);
         cdao.cadastro(consulta);
+        }catch(Exception ex){
+        System.out.println(ex.getMessage());
+        }
     }
     
     public Date getDataSelecionada() {

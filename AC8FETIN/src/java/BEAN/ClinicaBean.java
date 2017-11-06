@@ -69,8 +69,8 @@ public class ClinicaBean {
     
     public Clinica buscarClinicabyEndereco(String cli){
         String endereco = new String();
-        endereco = cli.split(", Cidade:")[0];
-        return clinicaDAO.getClinicaEndereco(endereco);
+        endereco = cli.split(",")[0];
+        return new ClinicaDAO().getClinicaEndereco(endereco);
     }
     
 }

@@ -16,49 +16,56 @@ and open the template in the editor.
         <h:outputStylesheet name="/css/style.css"/>
         <title>Consulta paciente</title>
     </h:head>
-    <h:body class="backgroundClass">
-        <p:tooltip/>
-        <p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" />
 
+    <h:body class="backgroundClass">
+        <ui:composition template="./../menu.xhtml">
+        <ui:define name="conteudo">
+      
         <div id="centerButtons">
             <h1 class="default-h1">Marcar consulta</h1>
-            <h:form>
-                <table align='center'  class="formStyle">
-                    <tr>
-                        <td>
+            <form>
+                
                             <p:outputLabel class="medicos" value="Médico*:  "/>
-                        </td><td><p:selectOneMenu id="medico" value="#{consultaBean.medicoSelecionado}">
+                        <p:selectOneMenu id="medico" value="#{consultaBean.medicoSelecionado}">
                                 <f:selectItems value="#{medicoBean.listaMedicos()}"
                                                var="u" itemLabel="#{u.nomeCompleto}, CRM: #{u.crm}" itemValue="#{u.nomeCompleto},  CRM: #{u.crm}"/>
                             </p:selectOneMenu>
-                        </td></tr>
-                    <tr>
-                        <td>
+                            <br/><br/>
+                        
                             <p:outputLabel class="clinicas" value="Clínica*:  "/>
-                        </td><td>
+                        
                             <p:selectOneMenu id="clinica" value="#{consultaBean.clinicaSelecionada}">
                                 <f:selectItems value="#{medicoBean.clinicas}"
                                                var="uu" itemLabel="#{uu.endereco}, Cidade: #{uu.cidade}, Estado: #{uu.estado}" itemValue="#{uu.endereco}, #{uu.cidade}, #{uu.estado}"/>
                             </p:selectOneMenu>
-                        </td></tr>
-                    <tr><td>
+                      <br/><br/>
                             <p:outputLabel class="datas" value="Data e hora*:  "/>
-                        </td><td>
+                        
                             <p:calendar id="datetime" value="#{consultaBean.dataSelecionada}" pattern="MM/dd/yyyy HH:mm:ss" />
-                        </td>
-                    </tr>
-                </table>
+                       
 
                 <br></br>
                 <br></br>
 
-                <p:commandButton class="commandButtonStyle" onclick="alerta();" value="Cadastrar" action="#{pacienteBean.inserir(paciente)}"/>
-            </h:form>
+                <p:commandButton class="commandButtonStyle" onclick="alerta();" value="Cadastrar" action="#{consultaBean.inserir()}"/>
+            </form>
         </div>
+            </ui:define>
+            <ui:define name="menu">
+
+                <h3 class="default-h1">Olá Paciente!</h3>
+                <p:menu>
+                    <p:menuitem value=" Dashboard" outcome="/paciente/dashboard.xhtml" icon="ui-icon-plus"/>
+                    <p:menuitem value=" Consultas" outcome="/paciente/consulta.xhtml" icon="ui-icon-plus"/>
+                    <p:menuitem value=" Meus Dados" id="menuzinho" action="#{pacienteBean.buscarView}" icon="ui-icon-person" ajax="false"/>
+                </p:menu>
+
+            </ui:define>
+        </ui:composition>
     </h:body>
     <script>
         function alerta() {
-            alert("Paciente cadastrado com sucesso!");
+            alert("Consulta cadastrada com sucesso!");
         }
     </script>
 </html>

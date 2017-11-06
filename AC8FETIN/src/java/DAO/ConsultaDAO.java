@@ -24,8 +24,8 @@ public class ConsultaDAO {
      public Consulta cadastro(Consulta data) throws SQLException {
         try {
             Connection conn = ConnectionManager.Conectar();
-
-            String sql = "INSERT INTO consulta (data, Clinica_idClinica, Medico_idMedico, Paciente_idPaciente) VALUES('" + data.getData()+ "'," + data.getClinica().getId()+ "," + data.getMedico().getId()+ "," + data.getPaciente().getId()+ ");";
+            SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+            String sql = "INSERT INTO consulta (data, Clinica_idClinica, Medico_idMedico, Paciente_idPaciente) VALUES('" + format.format(data.getData())+ "'," + data.getClinica().getId()+ "," + data.getMedico().getId()+ "," + data.getPaciente().getId()+ ");";
 
             PreparedStatement preparedStmt = conn.prepareStatement(sql);
 
