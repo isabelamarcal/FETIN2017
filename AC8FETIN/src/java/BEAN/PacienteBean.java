@@ -6,9 +6,12 @@
 package BEAN;
 
 import CONSTANTES.Constantes;
+import DAO.ConsultaDAO;
 import DAO.PacienteDAO;
+import POCO.Consulta;
 import POCO.Paciente;
 import java.sql.SQLException;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.faces.application.FacesMessage;
@@ -23,12 +26,14 @@ import javax.faces.context.FacesContext;
 public class PacienteBean {
 
     private PacienteDAO pdao;
+    private ConsultaDAO cdao;
     private Paciente paciente;
     private String localizado;
 
     public PacienteBean() {
         pdao = new PacienteDAO();
         paciente = new Paciente();
+        cdao = new ConsultaDAO();
     }
 
     public String inserir(Paciente p) {
@@ -91,6 +96,10 @@ public class PacienteBean {
     
     public Paciente getCurrentPaciente(){
         return pdao.getPaciente(Constantes.USUARIO.TIPO.IDPACIENTE);
+    }
+    
+    public List<Consulta> readAllConsultas(){
+        return cdao.consultaPaciente(Constantes.USUARIO.TIPO.IDPACIENTE);
     }
     
 }

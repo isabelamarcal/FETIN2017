@@ -12,7 +12,16 @@
     <h:body>
         <ui:composition template="./../menu.xhtml">
             <ui:define name="conteudo">
-                Aqui pro paciente
+                <h:form>
+                    <p:dataList value="#{pacienteBean.readAllConsultas()}" var="u" type="definition">
+                        <f:facet name="header">
+                            Consultas
+                        </f:facet>
+                        Medico: #{u.medico.nomeCompleto} <br></br>
+                        Clinica: #{u.clinica.endereco}, #{u.clinica.cidade}, #{u.clinica.estado}<br></br>
+                        Data: #{u.data}
+                    </p:dataList>
+                </h:form>
             </ui:define>
             <ui:define name="menu">
 
