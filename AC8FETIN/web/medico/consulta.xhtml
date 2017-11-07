@@ -11,44 +11,36 @@ and open the template in the editor.
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+        <title>Paciente</title>
+    </h:head>
     <h:body>
-
         <ui:composition template="./../menu.xhtml">
+            <ui:define name="conteudo">
+                <h:form>
+                    <p:dataList value="#{medicoBean.readAllConsultas()}" var="u" type="definition">
+                        <f:facet name="header">
+                            Consultas
+                        </f:facet>
+                        Paciente #{u.paciente.nomeCompleto} <br></br>
+                        Clinica: #{u.clinica.endereco}, #{u.clinica.cidade}, #{u.clinica.estado}<br></br>
+                        Data: #{u.data}
+                        <br></br>
+                        <br></br>
+                    </p:dataList>
+                    
+                </h:form>
+            </ui:define>
             <ui:define name="menu">
 
                 <h3 style="color: #0032ac;
                     font-family: arial;
-                    font-size: 20px;">Olá Médico!</h3>
+                    font-size: 20px;">Olá #{medicoBean.currentMedico().nomeCompleto}!</h3>
                 <p:menu>
                     <p:menuitem value=" Dashboard" outcome="/medico/dashboard.xhtml" icon="ui-icon-plus"/>
                     <p:menuitem value=" Consultas" outcome="/medico/consulta.xhtml" icon="ui-icon-plus"/>
                     <p:menuitem value=" Meus Dados" id="menuzinho" action="#{medicoBean.buscarView}" icon="ui-icon-person" ajax="false"/>
                 </p:menu>
-
-            </ui:define>
-            <ui:define name="conteudo">
-
-                <p:outputLabel value="Id:  #{medicoBean.medico.id}"/>
-                <br/> <br/>
-
-                <p:outputLabel value="Nome:  #{medicoBean.medico.nomeCompleto}"/>
-                <br/> <br/>
-
-                <p:outputLabel value="Especialidade:  #{medicoBean.medico.especialidade}"/>
-                <br/> <br/>
-
-                <p:outputLabel value="CRM:  #{medicoBean.medico.crm}"/>
-                <br/> <br/>
-
-                <p:outputLabel value="Login:  #{medicoBean.medico.login}"/>
-                <br/> <br/>
-
-                <p:outputLabel value="Senha:  #{medicoBean.medico.senha}"/>
-                <br/> <br/>
-
-                <h:commandButton value="Editar" action="#{medicoBean.buscarUpdate()}"/>
-                <br/><br/>
-                <h:commandButton value="Deletar" action="#{medicoBean.excluir()}"/>
 
             </ui:define>
         </ui:composition>

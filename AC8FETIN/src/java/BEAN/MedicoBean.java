@@ -7,8 +7,10 @@ package BEAN;
 
 import CONSTANTES.Constantes;
 import DAO.ClinicaDAO;
+import DAO.ConsultaDAO;
 import DAO.MedicoDAO;
 import POCO.Clinica;
+import POCO.Consulta;
 import POCO.Medico;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -34,13 +36,13 @@ public class MedicoBean {
 
     private MedicoDAO mdao;
     private Medico medico;
-
+    private ConsultaDAO cdao;
     private String localizado;
 
     public MedicoBean() {
         mdao = new MedicoDAO();
         medico = new Medico();
-
+        cdao = new ConsultaDAO();
     }
 
     private LineChartModel lineConsultas;
@@ -175,5 +177,13 @@ public class MedicoBean {
     private void loadClinicas() {
         this.clinicas = new ClinicaDAO().readAll();
     }
-
+    
+    public List<Consulta> readAllConsultas(){
+        return cdao.consultaMedico(Constantes.USUARIO.TIPO.IDMEDICO);
+    }
+    
+    public Medico currentMedico(){
+        return mdao.getMedico(Constantes.USUARIO.TIPO.IDMEDICO);
+    }
+    
 }
