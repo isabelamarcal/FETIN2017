@@ -3,14 +3,20 @@
     <Scope Scope="Faces Configuration Only"/>
     <Scope Scope="Project">
         <Node id="medico/create.xhtml" x="150" y="300" zoom="true"/>
-        <Node id="paciente/create.xhtml" x="150" y="150" zoom="true"/>
-        <Node id="login.xhtml" x="400" y="450" zoom="true"/>
         <Node id="index.xhtml" x="684" y="407" zoom="true"/>
         <Node id="medico/update.xhtml" x="150" y="450" zoom="true"/>
+        <Node id="createClinica.xhtml" x="150" y="750" zoom="true"/>
+        <Node id="paciente/consulta.xhtml" x="650" y="450" zoom="true"/>
+        <Node id="create.xhtml" x="400" y="600" zoom="true"/>
+        <Node id="medico/createClinica.xhtml" x="650" y="150" zoom="true"/>
+        <Node id="medico/consulta.xhtml" x="143" y="611" zoom="true"/>
+        <Node id="medico/read.xhtml" x="400" y="150" zoom="true"/>
+        <Node id="paciente/read.xhtml" x="1150" y="150" zoom="true"/>
+        <Node id="login.xhtml" x="400" y="450" zoom="true"/>
+        <Node id="paciente/create.xhtml" x="150" y="150" zoom="true"/>
+        <Node id="paciente/update.xhtml" x="900" y="300" zoom="true"/>
         <Node id="medico/dashboard.xhtml" x="400" y="300" zoom="true"/>
         <Node id="paciente/dashboard.xhtml" x="650" y="300" zoom="true"/>
-        <Node id="medico/delete.xhtml" x="650" y="150" zoom="false"/>
-        <Node id="medico/read.xhtml" x="400" y="150" zoom="true"/>
         <Node id="menu.xhtml" x="900" y="150" zoom="true"/>
     </Scope>
     <Scope Scope="All Faces Configurations"/>

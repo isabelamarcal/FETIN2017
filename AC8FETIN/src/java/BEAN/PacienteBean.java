@@ -102,4 +102,8 @@ public class PacienteBean {
         return cdao.consultaPaciente(Constantes.USUARIO.TIPO.IDPACIENTE);
     }
     
+    public Paciente currentPaciente(){
+        return pdao.getPaciente(Constantes.USUARIO.TIPO.IDPACIENTE);
+    }
+    
 }

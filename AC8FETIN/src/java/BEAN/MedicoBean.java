@@ -7,8 +7,10 @@ package BEAN;
 
 import CONSTANTES.Constantes;
 import DAO.ClinicaDAO;
+import DAO.ConsultaDAO;
 import DAO.MedicoDAO;
 import POCO.Clinica;
+import POCO.Consulta;
 import POCO.Medico;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -34,13 +36,13 @@ public class MedicoBean {
 
     private MedicoDAO mdao;
     private Medico medico;
-
+    private ConsultaDAO cdao;
     private String localizado;
 
     public MedicoBean() {
         mdao = new MedicoDAO();
         medico = new Medico();
-
+        cdao = new ConsultaDAO();
     }
 
     private LineChartModel lineConsultas;
@@ -93,12 +95,18 @@ public class MedicoBean {
 
         LineChartSeries series1 = new LineChartSeries();
         series1.setLabel("Nº de consultas");
-
-        series1.set(1, 2);
-        series1.set(2, 1);
-        series1.set(3, 3);
-        series1.set(4, 6);
-        series1.set(5, 8);
+        
+        List<Consulta> listaConsulta = cdao.consultaMedico(Constantes.USUARIO.TIPO.IDMEDICO);
+        int[] M = new int[13];
+        
+        for (Consulta l : listaConsulta) {
+            int month = l.getData().getMonth();
+            M[month+1]++;
+        }
+        
+        for (int i=1; i<=12; i++) {
+            series1.set(i, M[i]);
+        }
 
         model.addSeries(series1);
 
@@ -175,5 +183,13 @@ public class MedicoBean {
     private void loadClinicas() {
         this.clinicas = new ClinicaDAO().readAll();
     }
-
+    
+    public List<Consulta> readAllConsultas(){
+        return cdao.consultaMedico(Constantes.USUARIO.TIPO.IDMEDICO);
+    }
+    
+    public Medico currentMedico(){
+        return mdao.getMedico(Constantes.USUARIO.TIPO.IDMEDICO);
+    }
+    
 }

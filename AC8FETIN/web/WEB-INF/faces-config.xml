@@ -114,4 +114,11 @@
             <to-view-id>/paciente/read.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/medico/consulta.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>medicoView</from-outcome>
+            <to-view-id>/medico/read.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
 </faces-config>
