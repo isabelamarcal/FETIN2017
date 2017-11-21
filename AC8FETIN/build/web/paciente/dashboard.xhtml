@@ -23,11 +23,12 @@
                         <br></br>
                         <br></br>
                     </p:dataList>
+                    
                 </h:form>
             </ui:define>
             <ui:define name="menu">
 
-                <h3 class="default-h1">Olá Paciente!</h3>
+                <h3 class="default-h1">Olá #{pacienteBean.currentPaciente().nomeCompleto}!</h3>
                 <p:menu>
                     <p:menuitem value=" Dashboard" outcome="/paciente/dashboard.xhtml" icon="ui-icon-plus"/>
                     <p:menuitem value=" Consultas" outcome="/paciente/consulta.xhtml" icon="ui-icon-plus"/>
